@@ -1,9 +1,25 @@
-import React from "react";
 import { GameBoard, Row, Cell } from "./Board-styles";
 
-const Board = ({ board, updateBoard, winningCells }) => {
+type BoardProps = {
+  board: BoardCell[][];
+  updateBoard: (row: number, col: number) => void;
+  winningCells: Array<[number, number]>;
+  turn: "X" | "O";
+  xToken: React.ReactNode;
+  oToken: React.ReactNode;
+  selectedWall: { name: string; image: string };
+};
+
+const Board: React.FC<BoardProps> = ({
+  board,
+  updateBoard,
+  winningCells,
+  xToken,
+  oToken,
+  selectedWall,
+}) => {
   return (
-    <GameBoard>
+    <GameBoard selectedWall={selectedWall.image}>
       {board.map((row, rowIndex) => (
         <Row key={rowIndex}>
           {row.map((cell, colIndex) => {
@@ -11,18 +27,25 @@ const Board = ({ board, updateBoard, winningCells }) => {
               ([winningRow, winningCol]) =>
                 winningRow === rowIndex && winningCol === colIndex
             );
+
+            const token = cell === "X" ? xToken : cell === "O" ? oToken : null;
+
             return (
               <Cell
                 onClick={() => updateBoard(rowIndex, colIndex)}
                 key={colIndex}
-                style={isWinningCell ? { background: "yellow" } : {}}
+                style={
+                  isWinningCell
+                    ? { backdropFilter: "blur(10px)", background: "#151514c2" }
+                    : {}
+                }
               >
-                {cell}
+                {token}
               </Cell>
             );
           })}
         </Row>
-      ))}
+      ))}{" "}
     </GameBoard>
   );
 };

@@ -1,5 +1,4 @@
 import { Board, SudokuSubgrid, NumberCell } from "./SudokuBoardTemplate-styles";
-import { useState } from "react";
 
 const SudokuBoardTemplate = ({ subgrids, updateBoard, initialFilledCells }) => {
   const handleInput = (e, subgridIndex, cellIndex) => {
@@ -18,27 +17,30 @@ const SudokuBoardTemplate = ({ subgrids, updateBoard, initialFilledCells }) => {
 
   return (
     <Board>
-      {subgrids &&
-        subgrids.map((subgrid, subgridIndex) => (
-          <SudokuSubgrid key={subgridIndex}>
-            {subgrid.map((cell, cellIndex) => {
-              const boardCellIndex = subgridIndex * 9 + cellIndex;
-              return (
-                <NumberCell
-                  key={cellIndex}
+      {subgrids?.map((subgrid, subgridIndex) => (
+        <SudokuSubgrid key={subgridIndex}>
+          {subgrid.map((cell, cellIndex) => {
+            const boardCellIndex = subgridIndex * 9 + cellIndex;
+            return (
+              <NumberCell
+                key={cellIndex}
+                readOnly={initialFilledCells?.includes(boardCellIndex)}
+              >
+                <input
+                  type="number"
+                  value={cell !== null ? cell + 1 : ""}
+                  onChange={(e) => handleInput(e, subgridIndex, cellIndex)}
                   readOnly={initialFilledCells?.includes(boardCellIndex)}
-                >
-                  <input
-                    type="number"
-                    value={cell !== null ? cell + 1 : ""}
-                    onChange={(e) => handleInput(e, subgridIndex, cellIndex)}
-                    readOnly={initialFilledCells?.includes(boardCellIndex)}
-                  />
-                </NumberCell>
-              );
-            })}
-          </SudokuSubgrid>
-        ))}
+                />
+                <img
+                  src="/public/assets/sudoku/climbing-hold.png"
+                  alt="climbing-hold"
+                />
+              </NumberCell>
+            );
+          })}
+        </SudokuSubgrid>
+      ))}
     </Board>
   );
 };

@@ -1,15 +1,21 @@
 import React, { useState } from "react";
 import { Letter, KeyboardWrp } from "./Keyboard-styles";
+import { useHangmanContext } from "../Context-Hangman/HangmanContext";
 
-const Keyboard = ({
-  updateAttempts,
-  updateHiddenRiddle,
-  normalizedRiddleName,
-}) => {
+const Keyboard = () => {
+  const {
+    setAttempts,
+    attempts,
+    setCurrentFrame,
+    setCorrectLetters,
+    correctLetters,
+    updateHiddenRiddle,
+    normalizedRiddleName,
+    incorrectLetters,
+    setIncorrectLetters,
+  } = useHangmanContext();
+
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const [incorrectLetters, setIncorrectLetters] = useState([]);
-  const [correctLetters, setCorrectLetters] = useState([]);
-
   const checkLetterMatch = (clickedLetter) => {
     const isLetterInName = normalizedRiddleName.includes(clickedLetter);
     if (isLetterInName) {
@@ -18,23 +24,28 @@ const Keyboard = ({
         ...prevCorrectLetters,
         clickedLetter,
       ]);
+      setCurrentFrame((prevFrame) => prevFrame + 1); // Update the current frame
     } else {
-      updateAttempts();
+      setAttempts(attempts - 1);
       setIncorrectLetters((prevIncorrectLetters) => [
         ...prevIncorrectLetters,
         clickedLetter,
       ]);
     }
   };
-
   return (
     <KeyboardWrp>
       {alphabet.split("").map((letter) => {
         const backgroundColor = incorrectLetters.includes(letter)
-          ? "red"
+          ? "rgba(196, 15, 15, 0.8)"
           : correctLetters.includes(letter)
-          ? "green"
-          : "white";
+          ? "rgba(20, 158, 7, 0.8)"
+          : "#ebf3eb";
+        const border = incorrectLetters.includes(letter)
+          ? "2px solid rgba(158, 7, 7, 0.8)"
+          : correctLetters.includes(letter)
+          ? "2px solid rgba(20, 158, 7, 0.8)"
+          : "2px solid rgba(1, 1, 1, 0.5)";
 
         return (
           <Letter
@@ -42,7 +53,7 @@ const Keyboard = ({
             onClick={() => checkLetterMatch(letter)}
             value={letter}
             id={letter}
-            style={{ backgroundColor }}
+            style={{ backgroundColor, border }}
           >
             {letter}
           </Letter>

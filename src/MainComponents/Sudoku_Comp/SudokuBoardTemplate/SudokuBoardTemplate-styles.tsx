@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Board = styled.div`
   display: grid;
@@ -8,7 +8,7 @@ export const Board = styled.div`
 export const SudokuSubgrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 2px solid black;
+  border: 1px solid black;
 `;
 
 const NumberCellBase = styled.div`
@@ -16,23 +16,25 @@ const NumberCellBase = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-`;
-
-const focusedInputStyle = css`
-  background-color: rgba(155, 88, 182, 0.5);
+  position: relative;
 `;
 
 export const NumberCell = styled(NumberCellBase)`
   > input {
     padding: 0.5rem;
+    position: absolute;
+    z-index: 2;
     text-align: center;
     max-width: 2rem;
     border: none;
     font-weight: bold;
-    ${(props) => props.readOnly && "background-color: #20e62089;"};
+    ${(props) => props.readOnly && "background-color: #4a946cae;"};
+  }
 
-    &:focus {
-      ${focusedInputStyle}
-    }
+  > img {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: relative;
   }
 `;

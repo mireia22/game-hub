@@ -16,5 +16,13 @@ export const MainButton = styled.button`
     color: black;
     left: 1rem;
     bottom: 2.5rem;
+    z-index: 2;
+  `}
+
+  ${({ variant }) =>
+    variant === "reset" &&
+    `
+    background-color: black;
+    
   `}
 `;

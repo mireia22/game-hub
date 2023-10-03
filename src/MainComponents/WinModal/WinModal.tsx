@@ -5,7 +5,7 @@ const WinModal = ({ resetGame, children }) => {
     <PopOut>
       <PopOutContent>
         {children}
-        <Button onClick={resetGame}>Play again</Button>
+        <Button onClick={resetGame}>Climb again</Button>
       </PopOutContent>
     </PopOut>
   );

@@ -1,11 +1,19 @@
 import React from "react";
+import { TurnWrp } from "./Turn-styles";
 
-const Turn = ({ turn, isStarted }) => {
-  return isStarted ? (
-    <div>
-      <p>It's {turn} turn</p>
-    </div>
-  ) : null;
+type TurnProps = {
+  turn: "X" | "O";
+  xToken: React.ReactNode;
+  oToken: React.ReactNode;
 };
 
+const Turn: React.FC<TurnProps> = ({ turn, xToken, oToken }) => {
+  return (
+    <TurnWrp>
+      <p>It's </p>
+      <p>{turn === "X" ? xToken : oToken}</p>
+      <p>turn</p>
+    </TurnWrp>
+  );
+};
 export default Turn;

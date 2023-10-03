@@ -13,14 +13,20 @@ export const PopOut = styled.div`
 export const PopOutContent = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.8rem;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 0.8rem;
+  border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1001;
+  align-items: center;
+  justify-content: center;
+
+  > img {
+    width: 14rem;
+  }
 `;
