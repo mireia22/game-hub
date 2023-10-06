@@ -9,6 +9,7 @@ export const KeyboardWrp = styled.div`
   width: 320px;
 `;
 export const Letter = styled.button`
+  cursor: pointer;
   font-weight: bold;
   align-items: center;
   justify-content: center;

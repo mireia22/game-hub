@@ -11,9 +11,10 @@ const Turn: React.FC<TurnProps> = ({ turn, xToken, oToken }) => {
   return (
     <TurnWrp>
       <p>It's </p>
-      <p>{turn === "X" ? xToken : oToken}</p>
+      {turn === "X" ? xToken : oToken}
       <p>turn</p>
     </TurnWrp>
   );
 };
+
 export default Turn;

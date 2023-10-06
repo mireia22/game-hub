@@ -1,5 +1,5 @@
 import React from "react";
-import { PointsWrp, PointsTitle } from "./Points-styles";
+import { PointsWrp, PointsValue } from "./Points-styles";
 
 type PointsProps = {
   gameResult: "winner" | "equal" | null;
@@ -10,17 +10,17 @@ type PointsProps = {
 
 const Points: React.FC<PointsProps> = ({ points, xToken, oToken }) => {
   return (
-    <>
-      <PointsTitle>Points:</PointsTitle>
-      <PointsWrp>
-        <p>{xToken}</p>
+    <PointsWrp>
+      <h4>Finished routes:</h4>
+      <PointsValue>
+        {xToken}
         <p>{points.pointsX}</p>
-      </PointsWrp>
-      <PointsWrp>
-        <p>{oToken}</p>
+      </PointsValue>
+      <PointsValue>
+        {oToken}
         <p>{points.pointsO}</p>
-      </PointsWrp>
-    </>
+      </PointsValue>
+    </PointsWrp>
   );
 };
 export default Points;

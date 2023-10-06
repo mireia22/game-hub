@@ -1,28 +1,27 @@
 import { useState } from "react";
+import {
+  LocalStorageKey,
+  LocalStorageValue,
+  UseLocalStorageReturnType,
+} from "../Types/AuthTypes";
 
-export const useLocalStorage = (key, value) => {
-  const [user, setUser] = useState(() => {
-    try {
-      const user = window.localStorage.getItem(key);
-      if (user) {
-        return JSON.parse(user);
-      } else {
-        window.localStorage.setItem(key, JSON.stringify(value));
-        return value;
-      }
-    } catch (error) {
-      return value;
-    }
+export const useLocalStorage = (
+  key: LocalStorageKey,
+  initialValue: LocalStorageValue
+): UseLocalStorageReturnType => {
+  const [storedValue, setStoredValue] = useState<LocalStorageValue>(() => {
+    const item = window.localStorage.getItem(key);
+    return item ? JSON.parse(item) : initialValue;
   });
 
-  const setLocalStorageUser = (value) => {
+  const updateStoredValue = (value: LocalStorageValue) => {
     try {
       window.localStorage.setItem(key, JSON.stringify(value));
-      setUser(value);
+      setStoredValue(value);
     } catch (error) {
-      return value;
+      console.error("LocalStorage Error", error);
     }
   };
 
-  return [user, setLocalStorageUser];
+  return [storedValue, updateStoredValue];
 };

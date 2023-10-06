@@ -1,5 +1,5 @@
+import { useTicTacToeContext } from "../../../Context/TicTacToeContext";
 import { GAMES } from "../../Constants/Games";
-import { useTicTacToeContext } from "../Context-TicTacToe/TicTacToeContext";
 import {
   ChooseWallSection,
   ClimbingWallsWrp,
@@ -10,24 +10,26 @@ const IntroTicTacToe = () => {
   const { selectWallAndStartGame } = useTicTacToeContext();
 
   const game = GAMES[0];
+  const { introText, climbingWalls } = game;
+
   return (
     <ChooseWallSection>
       <article>
-        <h4>{game.introText?.p1.toUpperCase()} </h4>
-      </article>
-      <article>
-        <p>{game.introText?.p2} </p>
+        <h2>{introText?.p1?.toUpperCase()} </h2>
+        <p>{introText?.p2} </p>
+        <p>{introText?.p3} </p>
+        <p>{introText?.p4} </p>
       </article>
       <article>
         <h4>Choose a climbing wall:</h4>
         <ClimbingWallsWrp>
-          {game.climbingWalls?.map((wall, index) => (
+          {climbingWalls?.map((wall, index) => (
             <WallImageContainer
               key={index}
-              onClick={() => selectWallAndStartGame(wall.image, wall.name)}
+              onClick={() => selectWallAndStartGame(wall?.image, wall?.name)}
             >
-              <img src={wall.image} alt={wall.name} />
-              <h4>{wall.name.toUpperCase()}</h4>
+              <img src={wall?.image} alt={wall?.name} />
+              <h4>{wall?.name?.toUpperCase()}</h4>
             </WallImageContainer>
           ))}
         </ClimbingWallsWrp>

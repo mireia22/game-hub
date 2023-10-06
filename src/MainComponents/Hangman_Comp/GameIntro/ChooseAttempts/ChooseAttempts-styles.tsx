@@ -4,13 +4,13 @@ export const ChooseAttemptsUl = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
   gap: 1rem;
 `;
 
 export const ChooseAttemptsButton = styled.button`
   display: flex;
   gap: 1rem;
+  color: var(--font);
   align-items: center;
   padding: 0.3rem;
   font-weight: bold;
@@ -24,9 +24,9 @@ export const ChooseAttemptsButton = styled.button`
   background-color: ${(props) => {
     switch (props.attempts) {
       case 3:
-        return "#e2463bd6";
+        return "#e2463ba3";
       case 5:
-        return "#ffeb54d6";
+        return "#dfbc0ed5";
       case 10:
         return "#4a946cd6";
       default:

@@ -1,8 +1,8 @@
 import { Navigate, useOutlet } from "react-router-dom";
-import AppBar from "../AppBar/AppBar";
+import AppBar from "../MainComponents/AppBar/AppBar";
 import { useAuthContext } from "../Context/AuthContext";
 
-export const NavBar = () => {
+export const FreeNavLayout = () => {
   const { user } = useAuthContext();
   const outlet = useOutlet();
 

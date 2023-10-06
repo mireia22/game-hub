@@ -1,35 +1,38 @@
 import styled from "styled-components";
 
-export const WelcomeWrp = styled.div`
-  padding: 1rem;
+export const WelcomeWrp = styled.section`
+  padding: 1.5rem 1rem;
+  min-height: calc(100vh - (36px + 48px));
   width: 100%;
   display: flex;
-  align-items: end;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: calc(100vh - (36px + 47px));
+  font-weight: bold;
+  color: var(--dark-brown);
+`;
+export const TitleWrp = styled.article`
+  font-size: 2rem;
+  position: relative;
+  text-align: end;
 `;
 
-export const TextWrp = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: end;
-  gap: 0.6rem;
-  justify-content: space-between;
-  color: #284e84;
-  margin-bottom: 4.5rem;
-  > p {
-    font-size: 0.9rem;
-    color: #4b545e;
-  }
+export const LinkWrp = styled.article`
+  background-color: var(--dark-brown);
+  padding: 0.18rem;
+  text-align: center;
+  border-radius: 5px;
+  width: 6rem;
+  border: 2px solid var(--dark-orange);
 
   > a {
-    background-color: #284e84;
-    padding: 0.18rem;
-    border-radius: 5px;
-    color: #eef1eb;
-    > span {
-      font-weight: bold;
-    }
+    color: var(--font);
+    cursor: pointer;
   }
+`;
+
+export const PWrp = styled.article`
+  font-size: 0.9rem;
+  margin-top: 8rem;
+  line-height: 2rem;
+  text-align: start;
+  color: var(--dark-orange);
 `;

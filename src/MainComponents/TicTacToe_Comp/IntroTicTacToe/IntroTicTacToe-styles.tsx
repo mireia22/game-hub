@@ -4,24 +4,25 @@ export const ChooseWallSection = styled.section`
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 1rem;
-  height: 100%;
+  gap: 3rem;
   padding: 1rem;
-  align-items: center;
-  justify-content: center;
+  color: var(--dark-brown);
   > article {
-    > h4 {
-      color: #38444e;
-      font-size: 1.2rem;
+    > h2 {
+      color: var(--font);
     }
     > p {
+      font-weight: bold;
       line-height: 1.8rem;
-      padding: 0rem 2rem;
+    }
+
+    @media (min-width: 576px) {
+      width: 40rem;
     }
   }
 `;
 
-export const ClimbingWallsWrp = styled.div`
+export const ClimbingWallsWrp = styled.ul`
   display: flex;
   margin-top: 1rem;
   flex-wrap: wrap;
@@ -30,20 +31,32 @@ export const ClimbingWallsWrp = styled.div`
   justify-content: center;
 `;
 
-export const WallImageContainer = styled.div`
-  width: 9em;
-  height: rem;
-  text-align: center;
+export const WallImageContainer = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: var(--dark-brown);
+  padding: 0.5rem;
+  width: 9rem;
+  border-radius: 10px;
   cursor: pointer;
+  > h4 {
+    color: var(--orange);
+  }
 
   > img {
     width: 100%;
-    height: 100%;
+    height: 7rem;
     border-radius: 10px;
     object-fit: contain;
+    border-radius: 10px;
   }
 
-  > h4 {
-    color: #38444e;
+  @media (min-width: 576px) {
+    width: 12rem;
+    height: 12rem;
+    > h4 {
+      font-size: 1.2rem;
+    }
   }
 `;

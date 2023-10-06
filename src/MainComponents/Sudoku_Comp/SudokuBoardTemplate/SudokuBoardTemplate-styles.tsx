@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const Board = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
+  @media (min-width: 576px) {
+    width: 400px;
+    height: 400px;
+  }
 `;
 
 export const SudokuSubgrid = styled.div`
@@ -16,25 +21,26 @@ const NumberCellBase = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  position: relative;
 `;
 
 export const NumberCell = styled(NumberCellBase)`
   > input {
     padding: 0.5rem;
     position: absolute;
-    z-index: 2;
     text-align: center;
-    max-width: 2rem;
+    width: 2rem;
     border: none;
     font-weight: bold;
-    ${(props) => props.readOnly && "background-color: #4a946cae;"};
+    ${(props) => props.readOnly && "background-color: #6fd39dad"};
+
+    @media (min-width: 576px) {
+      width: calc(43.77px - 2px);
+      height: calc(43.77px - 2px);
+    }
   }
 
   > img {
     width: 100%;
     height: 100%;
-    z-index: 1;
-    position: relative;
   }
 `;

@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const GameBoard = styled.div`
+type GameBoardProps = {
+  selectedwall: string;
+};
+export const GameBoard = styled.div<GameBoardProps>`
   position: relative;
   width: 300px;
   height: 300px;
@@ -13,7 +16,7 @@ export const GameBoard = styled.div`
     width: 100%;
     height: 100%;
     background-image: url(${(props) =>
-      props.selectedWall ||
+      props.selectedwall ||
       "https://i.etsystatic.com/11822629/r/il/03be88/2621035903/il_340x270.2621035903_fue9.jpg"});
     background-size: cover;
     background-position: center;
@@ -35,7 +38,8 @@ export const Row = styled.div`
 export const Cell = styled.button`
   width: calc(100% / 3);
   height: 100px;
-  border: 2px solid #6b6d62;
+
+  border: 2px solid var(--orange);
   display: flex;
   align-items: center;
   justify-content: center;

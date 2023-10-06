@@ -1,9 +1,9 @@
+import { useHangmanContext } from "../../../../Context/HangmanContext";
 import {
   AttemptsImg,
   ChooseAttemptsButton,
   ChooseAttemptsUl,
 } from "./ChooseAttempts-styles";
-import { useHangmanContext } from "../../Context-Hangman/HangmanContext";
 const ChooseAttempts = () => {
   const climbingAttempts = [3, 5, 10];
 

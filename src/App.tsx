@@ -5,39 +5,45 @@ import Home from "./Pages/Home/Home";
 import Tictactoe from "./Pages/TicTacToe/Tictactoe";
 import Hangman from "./Pages/Hangman/Hangman";
 import Sudoku from "./Pages/Sudoku/Sudoku";
-import LoginForm from "./LogInForm/LogInForm";
-import { HangmanDataProvider } from "./MainComponents/Hangman_Comp/Context-Hangman/HangmanContext";
-import { TicTacToeDataProvider } from "./MainComponents/TicTacToe_Comp/Context-TicTacToe/TicTacToeContext";
-import { SudokuDataProvider } from "./MainComponents/Sudoku_Comp/Sudoku-Context/SudokuContext";
-import { FreeLayout, NavBar } from "./Layout/FreeLayout";
-import { ProtectedLayout } from "./Layout/ProtectedLayout";
-import Register from "./Register/Register";
+import LoginForm from "./MainComponents/LogInForm/LogInForm";
+import { ProtectedNavLayout } from "./Layout/ProtectedLayout";
 import WelcomePage from "./Pages/WelcomePage/WelcomePage";
 import { useAuthContext } from "./Context/AuthContext";
+import { TicTacToeDataProvider } from "./Context/TicTacToeContext";
+import { HangmanDataProvider } from "./Context/HangmanContext";
+import { SudokuDataProvider } from "./Context/SudokuContext";
+import { GiMountainClimbing } from "react-icons/gi";
+import { TbArrowBigLeftLineFilled } from "react-icons/tb";
 
-const App = () => {
+const App: React.FC = () => {
   const { user } = useAuthContext();
 
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
+
   const isDashboard = location.pathname.startsWith("/dashboard");
-  const returnToHome = () => {
-    navigate("/dashboard/home");
+
+  const returnToPreviousPage = () => {
+    navigate(-1);
   };
 
   return (
-    <AppWrp isDashboard={isDashboard}>
+    <AppWrp isdashboard={isDashboard.toString()}>
       <MainHeader>
-        <h2>Climb Hub</h2>
-        {user ? <ProtectedLayout /> : <NavBar />}
+        {user ? (
+          <ProtectedNavLayout />
+        ) : (
+          <GiMountainClimbing className="climb-icon" />
+        )}
       </MainHeader>
       <MainWrp>
-        {/* FREE ROUTES */}
         <Routes>
           <Route>
+            {/* FREE ROUTES */}
             <Route path="/" element={<WelcomePage />} />
             <Route path="login" element={<LoginForm />} />
-            <Route path="register" element={<Register />} />
+
+            {/* PROTECTED ROUTES */}
             <Route path="/dashboard/home" element={<Home />} />
             <Route
               path="dashboard/tic-tac-toe"
@@ -56,7 +62,7 @@ const App = () => {
               }
             />
             <Route
-              path="sudoku"
+              path="dashboard/sudoku"
               element={
                 <SudokuDataProvider>
                   <Sudoku />
@@ -65,12 +71,12 @@ const App = () => {
             />
           </Route>
         </Routes>
-
-        {location.pathname !== "/" ? (
-          <Button variant="return" onClick={returnToHome}>
-            ⬅️ Return
-          </Button>
-        ) : null}
+        {location.pathname !== "/" &&
+          location.pathname !== "/dashboard/home" && (
+            <Button variant="return" onClick={returnToPreviousPage}>
+              <TbArrowBigLeftLineFilled />
+            </Button>
+          )}
       </MainWrp>
 
       <MainFooter>Created by Mire</MainFooter>

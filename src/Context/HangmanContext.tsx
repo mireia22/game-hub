@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createContext, useContext } from "react";
-import { removeDiacritics } from "../../../utils/Diacritics";
-import { RIDDLES } from "../../Constants/Hangman-Riddles";
+import { RIDDLES } from "../MainComponents/Constants/Hangman-Riddles";
+import { removeDiacritics } from "../Utils/useRemoveDiacritics";
 
 export const HangmanContext = createContext();
 export const useHangmanContext = () => useContext(HangmanContext);

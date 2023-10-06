@@ -1,75 +1,60 @@
-import { SudokuButtonsWrp, SudokuWrp } from "./DoingSudoku-styles";
+import WinModal from "../../WinModal/WinModal";
+import {
+  SudokuButtonsWrp,
+  SudokuWrp,
+  SolvedSudokuContainer,
+  SudokuBoardWrp,
+} from "./DoingSudoku-styles";
 import SudokuBoardTemplate from "../SudokuBoardTemplate/SudokuBoardTemplate";
 import Button from "../../Button/Button";
-import { useEffect, useReducer } from "react";
-import { sudokuReducer } from "../SudokuBoardTemplate/SudokuReducer/SudokuReducer";
-import sudoku from "sudoku";
+import { useSudokuContext } from "../../../Context/SudokuContext";
+import SolvedSudoku from "../SolvedSudoku/SolvedSudoku";
 
 const DoingSudoku = () => {
-  const initialState = {
-    initialFilledCells: [],
-    sudokuBoard: null,
-    solvedSudoku: null,
-    openSolution: false,
-  };
-
-  const [state, dispatch] = useReducer(sudokuReducer, initialState);
-
-  useEffect(() => {
-    const newBoard = sudoku.makepuzzle();
-    const solved = sudoku.solvepuzzle(newBoard);
-
-    dispatch({
-      type: "NEW_BOARD",
-      payload: { newBoard, solved },
-    });
-  }, []);
-
-  const divideIntoSquares = (board) => {
-    const squares = [];
-    if (board) {
-      for (let i = 0; i < 9; i++) {
-        const square = board.slice(i * 9, i * 9 + 9);
-        squares.push(square);
-      }
-      return squares;
-    }
-  };
+  const {
+    sudokuBoard,
+    isFilled,
+    resetGame,
+    divideIntoSquares,
+    updateBoard,
+    initialFilledCells,
+    openSolution,
+    toggleSolution,
+    checkSolution,
+    changeBoard,
+  } = useSudokuContext();
 
   return (
     <SudokuWrp>
       <section>
-        {state.sudokuBoard && (
+        {sudokuBoard && (
           <SudokuBoardTemplate
-            subgrids={divideIntoSquares(state.sudokuBoard)}
-            updateBoard={(index, input) =>
-              dispatch({ type: "UPDATE_BOARD", payload: { index, input } })
-            }
-            initialFilledCells={state.initialFilledCells}
+            subgrids={divideIntoSquares(sudokuBoard)}
+            updateBoard={updateBoard}
+            initialFilledCells={initialFilledCells}
           />
         )}
       </section>
-
       <SudokuButtonsWrp>
-        <Button onClick={() => dispatch({ type: "RESET_BOARD" })}>
-          Reset Game
+        <Button onClick={resetGame}>Reset Game</Button>
+        <Button onClick={changeBoard}>Change Board</Button>
+
+        <Button onClick={toggleSolution}>
+          {openSolution ? "Close Solution" : "View Solution"}
         </Button>
-        <Button onClick={() => dispatch({ type: "NEW_BOARD" })}>
-          Change Board
-        </Button>
-        <Button onClick={() => dispatch({ type: "CHECK_SOLUTION" })}>
-          Check Solution
-        </Button>
-        <Button onClick={() => dispatch({ type: "TOGGLE_SOLUTION" })}>
-          {state.openSolution ? "Close Solution" : "View Solution"}
-        </Button>
+        {isFilled && <Button onClick={checkSolution}>Check Solution</Button>}
       </SudokuButtonsWrp>
+
+      <SolvedSudokuContainer>
+        <SolvedSudoku />
+      </SolvedSudokuContainer>
+
       <section>
-        {state.openSolution && state.sudokuBoard && (
-          <SudokuBoardTemplate
-            subgrids={divideIntoSquares(state.solvedSudoku)}
-          />
-        )}
+        {/* {userWins && (
+          <WinModal resetGame={resetGame}>
+            {isSolved === "false" ? "You lose" : "You win"}
+          </WinModal>
+        )} */}
       </section>
     </SudokuWrp>
   );

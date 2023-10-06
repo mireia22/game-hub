@@ -1,30 +1,46 @@
 import { styled } from "styled-components";
 
-export const AppWrp = styled.div`
-  background-image: url(${(props) =>
-    props.isDashboard ? "none" : "/assets/mobile-background-2.jpg"});
-  background-size: cover;
-  background-color: ${(props) =>
-    props.isDashboard ? "#a8a592" : "transparent"};
+export const AppWrp = styled.div<{ isdashboard: string }>`
+  background-image: url(${({ isdashboard }) =>
+    isdashboard === "true"
+      ? "https://www.transparenttextures.com/patterns/subtle-white-feathers.png"
+      : "/assets/backgrounds/mobile-background-2.jpg"});
 
-  @media (min-width: 400px) {
-    background-image: url(${(props) =>
-      props.isDashboard ? "none" : "/assets/welcome-background.png"});
+  background-size: cover;
+
+  background-color: ${({ isdashboard }) =>
+    isdashboard === "true" ? "#ef8c20" : "transparent"};
+
+  @media (min-width: 576px) {
+    background-image: url(${({ isdashboard }) =>
+      isdashboard === "true"
+        ? "https://www.transparenttextures.com/patterns/subtle-white-feathers.png"
+        : "/assets/backgrounds/welcome-background.jpg"});
   }
 `;
 
 export const MainHeader = styled.header`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0.5rem;
-  text-align: center;
   background-color: #010208;
   color: var(--font);
+
+  .climb-icon {
+    font-size: 2rem;
+    transform: scaleX(-1);
+    color: var(--font);
+  }
+
+  > nav {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
 `;
 export const MainWrp = styled.main`
   display: flex;
-  min-height: calc(100vh - (36px + 47px));
+  min-height: calc(100vh - (36px + 52px));
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;

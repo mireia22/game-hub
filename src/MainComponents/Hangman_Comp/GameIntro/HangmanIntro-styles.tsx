@@ -3,27 +3,30 @@ import styled from "styled-components";
 export const IntroWrp = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  gap: 2.2rem;
   text-align: center;
-  height: 100%;
+  color: var(--font);
 
   > article {
     > p {
       padding: 0rem 2rem;
       line-height: 1.8rem;
+      color: var(--dark-brown);
+      font-weight: bold;
+      line-height: 1.8rem;
+    }
+
+    @media (min-width: 576px) {
+      width: 30rem;
     }
   }
 `;
 
 export const ImageWrp = styled.div`
-  width: 100%;
   height: 12rem;
   > img {
-    width: 100%;
     height: 100%;
-
     object-fit: contain;
+    border-radius: 10px;
   }
 `;

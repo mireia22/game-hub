@@ -1,16 +1,12 @@
 import { createContext, useContext } from "react";
 import { useState } from "react";
-import { Token } from "../../../Pages/TicTacToe/Tictactoe-styles";
-import { GiCarabiner } from "react-icons/gi";
+import { TicTacToeContextType, TicTacToeState } from "../Types/TicTacToe-types";
+import { createToken } from "../Utils/createTokens";
 
-export const TicTacToeContext = createContext();
-
-export const useTicTacToeContext = () => useContext(TicTacToeContext);
-
-const initialBoard = Array(3).fill(Array(3).fill(null));
+const initialBoard: string[][] = Array(3).fill(Array(3).fill(null));
 const initialTurn: "X" | "O" = "X";
 
-const initialState = {
+const initialState: TicTacToeState = {
   isStarted: false,
   board: initialBoard,
   turn: initialTurn,
@@ -18,21 +14,25 @@ const initialState = {
   points: { pointsX: 0, pointsO: 0 },
   winningCells: [],
 };
-const createToken = (className) => (
-  <Token>
-    <GiCarabiner className={className} />
-  </Token>
+
+export const TicTacToeContext = createContext<TicTacToeContextType | undefined>(
+  undefined
 );
 
+export const useTicTacToeContext = () =>
+  useContext(TicTacToeContext) as TicTacToeContextType;
+
 //PROVIDER
-export const TicTacToeDataProvider = ({ children }) => {
-  const [gameState, setGameState] = useState(initialState);
+export const TicTacToeDataProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  const [gameState, setGameState] = useState<TicTacToeState>(initialState);
   const [selectedWall, setSelectedWall] = useState({ name: "", image: "" });
 
   const xToken = createToken("green-icon");
   const oToken = createToken("red-icon");
 
-  const checkGameResult = (boardToCheck) => {
+  const checkGameResult = (boardToCheck: string[][]) => {
     const linesToCheck = [
       // Rows
       ...boardToCheck,
@@ -48,6 +48,10 @@ export const TicTacToeDataProvider = ({ children }) => {
     for (const line of linesToCheck) {
       const [cell1, cell2, cell3] = line;
       if (cell1 === cell2 && cell2 === cell3 && cell1 !== null) {
+        setGameState((prevState) => ({
+          ...prevState,
+          winningCells: line,
+        }));
         return cell1;
       }
     }
@@ -58,11 +62,11 @@ export const TicTacToeDataProvider = ({ children }) => {
     return null;
   };
 
-  const checkEndGame = (newBoard) => {
+  const checkEndGame = (newBoard: string[][]) => {
     return newBoard.flat().every((cell) => cell !== null);
   };
 
-  const getWinningCells = (boardToCheck) => {
+  const getWinningCells = (boardToCheck: string[][]) => {
     const linesToCheck = [
       // Rows
       ...boardToCheck.map((row, rowIndex) =>
@@ -90,21 +94,26 @@ export const TicTacToeDataProvider = ({ children }) => {
       const cell1 = boardToCheck[row1][col1];
       const cell2 = boardToCheck[row2][col2];
       const cell3 = boardToCheck[row3][col3];
+      console.log(line);
 
       if (cell1 === cell2 && cell2 === cell3 && cell1 !== null) {
-        return line;
+        setGameState((prevState) => ({
+          ...prevState,
+          winningCells: line,
+        }));
+        return { line, values: [cell1, cell2, cell3] }; // Return both the line and the values of the winning cells
       }
     }
     if (boardToCheck.flat().every((cell) => cell !== null)) {
-      return [[]];
+      return { line: [[]], values: [] };
     }
 
-    return [];
+    return { line: [], values: [] };
   };
-
   // Points
-  const updatePoints = (winner) => {
-    if (winner !== "equal") {
+
+  const updatePoints = (winner: null | string) => {
+    if (winner !== "equal" && winner !== null) {
       setGameState((prevState) => ({
         ...prevState,
         points: {
@@ -116,7 +125,7 @@ export const TicTacToeDataProvider = ({ children }) => {
     }
   };
 
-  const updateBoard = (row, col) => {
+  const updateBoard = (row: number, col: number) => {
     if (
       gameState.board[row][col] ||
       gameState.gameResult ||
@@ -134,10 +143,13 @@ export const TicTacToeDataProvider = ({ children }) => {
       // Winner cells (row and column indexes)
       const newWinningCells = getWinningCells(newBoard);
       console.log(newWinningCells);
+
       setGameState((prevState) => ({
         ...prevState,
-        winningCells: newWinningCells,
         gameResult: newWinner,
+        isStarted: true,
+        board: newBoard,
+        turn: gameState.turn === "X" ? "O" : "X",
       }));
       updatePoints(newWinner);
     } else if (checkEndGame(newBoard)) {
@@ -145,6 +157,7 @@ export const TicTacToeDataProvider = ({ children }) => {
     }
     // Turn
     const newTurn = gameState.turn === "X" ? "O" : "X";
+
     setGameState((prevState) => ({
       ...prevState,
       turn: newTurn,
@@ -153,32 +166,30 @@ export const TicTacToeDataProvider = ({ children }) => {
   };
 
   const resetGame = () => {
-    setGameState({
-      ...gameState,
+    setGameState((prevState) => ({
+      ...initialState,
+      isStarted: true,
       board: initialBoard,
-      turn: initialTurn,
-      gameResult: null,
-      winningCells: [],
-    });
+      turn: prevState.turn === "X" ? "O" : "X",
+      points: prevState.points,
+    }));
   };
-
   const resetPoints = () => {
-    setGameState({
-      ...gameState,
-      board: initialBoard,
-      turn: initialTurn,
-      gameResult: null,
-      winningCells: [],
+    setGameState((prevState) => ({
+      ...prevState,
       points: { pointsX: 0, pointsO: 0 },
-    });
+    }));
   };
 
   const selectWallAndStartGame = (image: string, name: string) => {
     setSelectedWall({ name, image });
-    setGameState({ ...gameState, isStarted: true });
+    setGameState((prevState) => ({
+      ...prevState,
+      isStarted: true,
+    }));
   };
 
-  const sharedState = {
+  const sharedState: TicTacToeContextType = {
     selectWallAndStartGame,
     resetPoints,
     resetGame,
@@ -189,6 +200,9 @@ export const TicTacToeDataProvider = ({ children }) => {
     xToken,
     oToken,
     updateBoard,
+    points: gameState.points,
+    isStarted: gameState.isStarted,
+    board: gameState.board,
   };
 
   return (

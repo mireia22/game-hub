@@ -142,32 +142,38 @@ export const RIDDLES = [
 export const RIDDLES_IMG = [
   {
     id: uuidv4(),
-    src: "/assets/hangman/climbing-sequence/walk-frame.png",
+    src: "/assets/hangman/climbing-sequence/walk-frame.jpg",
     number: 1,
     name: "Keep walking until you find the beginning of the climbing route ",
   },
   {
     id: uuidv4(),
-    src: "/assets/hangman/climbing-sequence/climb-1-frame.png",
+    src: "/assets/hangman/climbing-sequence/climb-1-frame.jpg",
     number: 2,
     name: "Great! You've started climbing! ",
   },
   {
     id: uuidv4(),
-    src: "/assets/hangman/climbing-sequence/climb-2-frame.png",
+    src: "/assets/hangman/climbing-sequence/climb-2-frame.jpg",
     number: 3,
     name: "Keep it up, you're starting to get high!",
   },
   {
     id: uuidv4(),
-    src: "/assets/hangman/climbing-sequence/climb-3-frame.png",
+    src: "/assets/hangman/climbing-sequence/climb-3-frame.jpg",
     number: 4,
     name: "This is a difficult step; you're almost there!",
   },
   {
     id: uuidv4(),
-    src: "/assets/hangman/climbing-sequence/climb-3-frame.png",
+    src: "/assets/hangman/climbing-sequence/climb-4-frame.jpg",
     number: 4,
     name: "Push harder!",
+  },
+  {
+    id: uuidv4(),
+    src: "/assets/hangman/climbing-sequence/climb-4-frame.jpg",
+    number: 4,
+    name: "You're almost there!",
   },
 ];

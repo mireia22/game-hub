@@ -33,7 +33,7 @@ const SudokuBoardTemplate = ({ subgrids, updateBoard, initialFilledCells }) => {
                   readOnly={initialFilledCells?.includes(boardCellIndex)}
                 />
                 <img
-                  src="/public/assets/sudoku/climbing-hold.png"
+                  src="/public/assets/sudoku/climbing-hold.jpg"
                   alt="climbing-hold"
                 />
               </NumberCell>

@@ -1,24 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { HomeWrp, GameCard } from "./Home-styles";
+import { HomeWrp, HomeTextWrp, HomeUl, GameCard } from "./Home-styles";
 import Button from "../../MainComponents/Button/Button";
 import { GAMES } from "../../MainComponents/Constants/Games";
 import { useAuthContext } from "../../Context/AuthContext";
 
-type GameRoutes = {
-  Tictactoe: string;
-  Hangman: string;
-  Sudoku: string;
-};
-
-const Home = () => {
+const Home: React.FC = () => {
   const { user } = useAuthContext();
-  console.log(user);
   const navigate = useNavigate();
-  const gameRoutes: GameRoutes = {
-    Tictactoe: "/dashboard/tic-tac-toe",
-    Hangman: "/dashboard/hangman",
-    Sudoku: "/dashboard/sudoku",
-  };
+
+  const gameRoutes: Record<string, string> = {};
+
+  for (const game of GAMES) {
+    gameRoutes[game.name] = game.route;
+  }
 
   const goToGame = (gameName: string) => {
     const route = gameRoutes[gameName];
@@ -28,20 +22,25 @@ const Home = () => {
   };
 
   return (
-    <>
-      <h2>Hi {user.username.toUpperCase()}</h2>
-      <h2>What do you want to play?</h2>
-      <HomeWrp>
+    <HomeWrp>
+      <HomeTextWrp>
+        <h3>Nice to see you here</h3>
+        <h1>{user?.username?.toUpperCase()}</h1>
+        <h2>What do you want to play?</h2>
+      </HomeTextWrp>
+      <HomeUl>
         {GAMES.map((game) => (
           <GameCard key={game.id}>
             <h3>{game.name}</h3>
             <img src={game.image} alt={game.name} />
             <p>{game.description}</p>
-            <Button onClick={() => goToGame(game.name)}>Play</Button>
+            <Button variant="play" onClick={() => goToGame(game.name)}>
+              Play
+            </Button>
           </GameCard>
         ))}
-      </HomeWrp>
-    </>
+      </HomeUl>
+    </HomeWrp>
   );
 };
 

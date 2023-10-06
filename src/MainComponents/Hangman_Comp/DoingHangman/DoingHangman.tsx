@@ -1,4 +1,3 @@
-import { useHangmanContext } from "../Context-Hangman/HangmanContext";
 import { BsPatchQuestionFill } from "react-icons/bs";
 import {
   DoingHangmanWrp,
@@ -11,6 +10,7 @@ import Keyboard from "../Keyboard/Keyboard";
 import Button from "../../Button/Button";
 import { AttemptsImg } from "../GameIntro/ChooseAttempts/ChooseAttempts-styles";
 import { AiFillWarning } from "react-icons/ai";
+import { useHangmanContext } from "../../../Context/HangmanContext";
 const DoingHangman = () => {
   const {
     startGame,
@@ -35,13 +35,16 @@ const DoingHangman = () => {
         <WinModal resetGame={resetGame}>
           <p>Well done!</p>
           <p>You've reached the summit!</p>
-          <img src="assets/climbing-sequence/summit-frame.png" alt="summit" />
+          <img
+            src="/assets/hangman/climbing-sequence/summit-frame.jpg"
+            alt="summit"
+          />
         </WinModal>
       ) : attempts === 0 ? (
         <WinModal resetGame={resetGame}>
           <p>You've fallen! </p>
           <img
-            src="assets/hangman/climbing-sequence/fail-frame.png"
+            src="/assets/hangman/climbing-sequence/fail-frame.jpg"
             alt="fail"
           />
         </WinModal>

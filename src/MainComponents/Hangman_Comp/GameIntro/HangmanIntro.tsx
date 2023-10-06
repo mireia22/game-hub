@@ -7,9 +7,8 @@ const HangmanIntro = () => {
   return (
     <IntroWrp>
       <article>
-        <h1>HANGMAN</h1>
+        <h2>VOCABULARY CHALLENGE!</h2>
         <p>{game.introText?.p1} </p>
-        <p>{game.introText?.p2} </p>
       </article>
       <ImageWrp>
         <img
@@ -18,7 +17,7 @@ const HangmanIntro = () => {
         />
       </ImageWrp>
       <article>
-        <p style={{ fontWeight: "bold" }}>{game.introText?.p3} </p>
+        <p style={{ fontWeight: "bold" }}>{game.introText?.p2} </p>
         <ChooseAttempts />
       </article>
     </IntroWrp>

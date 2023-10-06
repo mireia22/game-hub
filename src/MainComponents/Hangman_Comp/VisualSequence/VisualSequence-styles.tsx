@@ -18,5 +18,6 @@ export const RiddlesImgWrp = styled.div`
     object-fit: contain;
     width: 100%;
     animation: ${fadeIn} 0.4s ease-in-out;
+    border-radius: 50%;
   }
 `;

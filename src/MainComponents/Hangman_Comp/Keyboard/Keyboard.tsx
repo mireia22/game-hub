@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Letter, KeyboardWrp } from "./Keyboard-styles";
-import { useHangmanContext } from "../Context-Hangman/HangmanContext";
+import { useHangmanContext } from "../../../Context/HangmanContext";
 
 const Keyboard = () => {
   const {
@@ -18,13 +18,20 @@ const Keyboard = () => {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const checkLetterMatch = (clickedLetter) => {
     const isLetterInName = normalizedRiddleName.includes(clickedLetter);
+    if (
+      incorrectLetters.includes(clickedLetter) ||
+      correctLetters.includes(clickedLetter)
+    ) {
+      return;
+    }
+
     if (isLetterInName) {
       updateHiddenRiddle(clickedLetter);
       setCorrectLetters((prevCorrectLetters) => [
         ...prevCorrectLetters,
         clickedLetter,
       ]);
-      setCurrentFrame((prevFrame) => prevFrame + 1); // Update the current frame
+      setCurrentFrame((prevFrame) => prevFrame + 1);
     } else {
       setAttempts(attempts - 1);
       setIncorrectLetters((prevIncorrectLetters) => [
@@ -33,6 +40,7 @@ const Keyboard = () => {
       ]);
     }
   };
+
   return (
     <KeyboardWrp>
       {alphabet.split("").map((letter) => {
@@ -40,7 +48,7 @@ const Keyboard = () => {
           ? "rgba(196, 15, 15, 0.8)"
           : correctLetters.includes(letter)
           ? "rgba(20, 158, 7, 0.8)"
-          : "#ebf3eb";
+          : "var(--font)";
         const border = incorrectLetters.includes(letter)
           ? "2px solid rgba(158, 7, 7, 0.8)"
           : correctLetters.includes(letter)

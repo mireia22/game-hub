@@ -1,14 +1,5 @@
+import { BoardProps } from "../../../Types/TicTacToe-types";
 import { GameBoard, Row, Cell } from "./Board-styles";
-
-type BoardProps = {
-  board: BoardCell[][];
-  updateBoard: (row: number, col: number) => void;
-  winningCells: Array<[number, number]>;
-  turn: "X" | "O";
-  xToken: React.ReactNode;
-  oToken: React.ReactNode;
-  selectedWall: { name: string; image: string };
-};
 
 const Board: React.FC<BoardProps> = ({
   board,
@@ -18,8 +9,9 @@ const Board: React.FC<BoardProps> = ({
   oToken,
   selectedWall,
 }) => {
+  console.log("winning cells", winningCells);
   return (
-    <GameBoard selectedWall={selectedWall.image}>
+    <GameBoard selectedwall={selectedWall.image}>
       {board.map((row, rowIndex) => (
         <Row key={rowIndex}>
           {row.map((cell, colIndex) => {

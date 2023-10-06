@@ -1,11 +1,20 @@
 import Button from "../Button/Button";
 import { PopOut, PopOutContent } from "./WinModal-styles";
-const WinModal = ({ resetGame, children }) => {
+
+type WinModalProps = {
+  resetGame: () => void;
+  gameResult: string;
+  children: React.ReactNode;
+};
+
+const WinModal: React.FC<WinModalProps> = ({ resetGame, children }) => {
   return (
     <PopOut>
       <PopOutContent>
         {children}
-        <Button onClick={resetGame}>Climb again</Button>
+        <Button variant="" onClick={resetGame}>
+          Climb again
+        </Button>
       </PopOutContent>
     </PopOut>
   );

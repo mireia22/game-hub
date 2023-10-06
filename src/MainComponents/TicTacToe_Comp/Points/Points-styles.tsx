@@ -1,10 +1,40 @@
 import styled from "styled-components";
 
-export const PointsTitle = styled.h4`
-  color: #38444e;
+export const PointsWrp = styled.div`
+  color: var(--dark-brown);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 8rem;
+  font-weight: bold;
+  gap: 0.5rem;
+  padding: 0.2rem;
+  > h4 {
+    color: var(--font);
+
+    border-radius: 5px;
+    background-color: rgba(87, 42, 12, 0.7);
+  }
+
+  @media (min-width: 576px) {
+    width: 10rem;
+    > h4 {
+      font-size: 1.3rem;
+    }
+  }
 `;
 
-export const PointsWrp = styled.div`
+export const PointsValue = styled.div`
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-around;
+  > p {
+    font-size: 1.3rem;
+  }
+
+  @media (min-width: 576px) {
+    > p {
+      font-size: 2rem;
+    }
+  }
 `;
