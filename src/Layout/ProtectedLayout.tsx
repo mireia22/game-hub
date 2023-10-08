@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
-import { useAuthContext } from "../Context/AuthContext";
 import { layoutPages } from "../MainComponents/Constants/layoutPages";
 import { useNavigate } from "react-router-dom";
 import Button from "../MainComponents/Button/Button";
+import { useAuthContext } from "../Hooks/Context/useAuthContext";
 
 export const ProtectedNavLayout = () => {
   const navigate = useNavigate();

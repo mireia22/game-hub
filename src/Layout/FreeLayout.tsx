@@ -1,16 +1,15 @@
 import { Navigate, useOutlet } from "react-router-dom";
-import AppBar from "../MainComponents/AppBar/AppBar";
-import { useAuthContext } from "../Context/AuthContext";
+import { useAuthContext } from "../Hooks/Context/useAuthContext";
 
 export const FreeNavLayout = () => {
   const { user } = useAuthContext();
   const outlet = useOutlet();
 
-  if (user) return <Navigate to="/dashboard/home" replace />;
+  if (user) return <Navigate to="/dashboard" replace />;
 
   return (
     <>
-      <AppBar pages={[{ label: "Login", path: "/login" }]} />
+      <nav pages={[{ label: "Login", path: "/login" }]} />
       {outlet}
     </>
   );

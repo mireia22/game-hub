@@ -1,15 +1,16 @@
 import { BoardProps } from "../../../Types/TicTacToe-types";
+import { createToken } from "../../../Utils/createTokens";
 import { GameBoard, Row, Cell } from "./Board-styles";
 
 const Board: React.FC<BoardProps> = ({
   board,
   updateBoard,
   winningCells,
-  xToken,
-  oToken,
   selectedWall,
 }) => {
-  console.log("winning cells", winningCells);
+  const xToken = createToken("green-icon");
+  const oToken = createToken("red-icon");
+
   return (
     <GameBoard selectedwall={selectedWall.image}>
       {board.map((row, rowIndex) => (

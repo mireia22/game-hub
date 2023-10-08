@@ -1,7 +1,7 @@
-type BoardCell = "X" | "O" | null;
+import { ReactNode } from "react";
 
 export type BoardProps = {
-  board: BoardCell[][];
+  board: string[][];
   updateBoard: (row: number, col: number) => void;
   winningCells: Array<[number, number]>;
   turn: "X" | "O";
@@ -12,25 +12,29 @@ export type BoardProps = {
 
 export type TicTacToeState = {
   isStarted: boolean;
-  board: BoardCell[][];
+  board: string[][];
   turn: "X" | "O";
   gameResult: "X" | "O" | "equal" | string | null;
   points: { pointsX: number; pointsO: number };
   winningCells: [number, number][];
 };
 
-export type TicTacToeContextType = {
+type TicTacToeContextSetters = {
   selectWallAndStartGame: (image: string, name: string) => void;
   resetPoints: () => void;
   resetGame: () => void;
-  gameState: TicTacToeState;
   setGameState: React.Dispatch<React.SetStateAction<TicTacToeState>>;
-  selectedWall: { name: string; image: string };
-
-  xToken: React.ReactNode;
-  oToken: React.ReactNode;
   updateBoard: (row: number, col: number) => void;
+};
+
+export type TicTacToeContextType = {
+  gameState: TicTacToeState;
+  selectedWall: { name: string; image: string };
   points: { pointsX: number; pointsO: number };
   isStarted: boolean;
   board: string[][];
+} & TicTacToeContextSetters;
+
+export type TicTacToeProviderProps = {
+  children: ReactNode;
 };

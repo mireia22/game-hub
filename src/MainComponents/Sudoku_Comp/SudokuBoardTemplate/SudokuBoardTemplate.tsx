@@ -3,15 +3,14 @@ import { Board, SudokuSubgrid, NumberCell } from "./SudokuBoardTemplate-styles";
 const SudokuBoardTemplate = ({ subgrids, updateBoard, initialFilledCells }) => {
   const handleInput = (e, subgridIndex, cellIndex) => {
     const inputValue = e.target.value;
+    const truncatedValue = inputValue.charAt(0);
+    e.target.value = truncatedValue;
 
-    if (inputValue.length > 1) {
-      const truncatedValue = inputValue.charAt(0);
-      e.target.value = truncatedValue;
-    }
-    if (/^[1-9]$/.test(inputValue)) {
+    if (inputValue < 1) {
+      // Check for empty input
+      updateBoard(subgridIndex * 9 + cellIndex, null); // Convert to null
+    } else if (/^[1-9]$/.test(inputValue)) {
       updateBoard(subgridIndex * 9 + cellIndex, inputValue);
-    } else {
-      updateBoard(subgridIndex * 9 + cellIndex, null);
     }
   };
 

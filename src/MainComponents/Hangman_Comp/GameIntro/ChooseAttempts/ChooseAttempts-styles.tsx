@@ -7,7 +7,11 @@ export const ChooseAttemptsUl = styled.ul`
   gap: 1rem;
 `;
 
-export const ChooseAttemptsButton = styled.button`
+type ChooseAttemptsButtonProps = {
+  $attempts: number;
+};
+
+export const ChooseAttemptsButton = styled.button<ChooseAttemptsButtonProps>`
   display: flex;
   gap: 1rem;
   color: var(--font);
@@ -22,7 +26,7 @@ export const ChooseAttemptsButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   background-color: ${(props) => {
-    switch (props.attempts) {
+    switch (props.$attempts) {
       case 3:
         return "#e2463ba3";
       case 5:

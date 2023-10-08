@@ -1,11 +1,11 @@
 import { createContext, useContext, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLocalStorage } from "../Hooks/useLocalStorage";
 import {
   AuthContextType,
   AuthProviderProps,
   UserData,
-} from "../Types/AuthTypes";
+} from "../../Types/AuthTypes";
+import { useLocalStorage } from "../useLocalStorage";
 
 export const AuthContext = createContext<AuthContextType | undefined>(
   undefined
@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const login = async (data: UserData) => {
     setUser(data);
-    navigate("/dashboard/home", { replace: true });
+    navigate("/dashboard", { replace: true });
   };
 
   const logout = () => {

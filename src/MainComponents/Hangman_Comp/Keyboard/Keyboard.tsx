@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useHangmanContext } from "../../../Hooks/Context/useHangmanContext";
 import { Letter, KeyboardWrp } from "./Keyboard-styles";
-import { useHangmanContext } from "../../../Context/HangmanContext";
 
 const Keyboard = () => {
   const {

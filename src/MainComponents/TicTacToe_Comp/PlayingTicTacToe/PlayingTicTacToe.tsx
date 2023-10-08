@@ -3,21 +3,17 @@ import Board from "../Board/Board";
 import Turn from "../Turn/Turn";
 import Points from "../Points/Points";
 import Button from "../../Button/Button";
-import { useTicTacToeContext } from "../../../Context/TicTacToeContext";
+import { createToken } from "../../../Utils/createTokens";
+import { useTicTacToeContext } from "../../../Hooks/Context/useTicTacToeContext";
 
 const PlayingTicTacToe = () => {
-  const {
-    gameState,
-    xToken,
-    resetPoints,
-    oToken,
-    updateBoard,
-    resetGame,
-    selectedWall,
-  } = useTicTacToeContext();
+  const { gameState, resetPoints, updateBoard, resetGame, selectedWall } =
+    useTicTacToeContext();
 
   const { pointsX, pointsO } = gameState.points;
   const gameResult = gameState.gameResult;
+  const xToken = createToken("green-icon");
+  const oToken = createToken("red-icon");
 
   return (
     <PlayingWrp>

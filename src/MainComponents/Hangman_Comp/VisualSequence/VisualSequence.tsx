@@ -1,5 +1,5 @@
-import { useHangmanContext } from "../../../Context/HangmanContext";
-import { RIDDLES_IMG } from "../../Constants/Hangman-Riddles";
+import { useHangmanContext } from "../../../Hooks/Context/useHangmanContext";
+import { RIDDLES_IMG } from "../../Constants/hangman/Hangman-Riddles";
 import { RiddlesImgWrp } from "./VisualSequence-styles";
 
 const VisualSequence = () => {

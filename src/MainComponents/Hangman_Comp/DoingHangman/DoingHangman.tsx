@@ -10,7 +10,7 @@ import Keyboard from "../Keyboard/Keyboard";
 import Button from "../../Button/Button";
 import { AttemptsImg } from "../GameIntro/ChooseAttempts/ChooseAttempts-styles";
 import { AiFillWarning } from "react-icons/ai";
-import { useHangmanContext } from "../../../Context/HangmanContext";
+import { useHangmanContext } from "../../../Hooks/Context/useHangmanContext";
 const DoingHangman = () => {
   const {
     startGame,
@@ -28,7 +28,7 @@ const DoingHangman = () => {
         <span>
           <BsPatchQuestionFill />
         </span>
-        <p>{riddle.description}</p>
+        <p>{riddle}</p>
         <h2>{hiddenRiddle.join(" ")}</h2>
       </article>
       {userWins ? (

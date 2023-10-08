@@ -1,4 +1,4 @@
-import { useTicTacToeContext } from "../../../Context/TicTacToeContext";
+import { useTicTacToeContext } from "../../../Hooks/Context/useTicTacToeContext";
 import { GAMES } from "../../Constants/Games";
 import {
   ChooseWallSection,

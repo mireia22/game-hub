@@ -1,4 +1,4 @@
-import { useHangmanContext } from "../../../../Context/HangmanContext";
+import { useHangmanContext } from "../../../../Hooks/Context/useHangmanContext";
 import {
   AttemptsImg,
   ChooseAttemptsButton,
@@ -15,7 +15,7 @@ const ChooseAttempts = () => {
         <ChooseAttemptsButton
           key={index}
           onClick={() => (isStarted ? resetGame() : startGame(option))}
-          attempts={option}
+          $attempts={option}
         >
           {option}
           <AttemptsImg

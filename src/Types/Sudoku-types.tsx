@@ -1,18 +1,27 @@
-export type SudokuState = {
-  initialFilledCells: number[];
-  sudokuBoard: number[] | null;
-  solvedSudoku: number[] | null;
-  openSolution: boolean;
-  isStarted: boolean;
+import { ReactNode } from "react";
+
+type SudokuContextSetters = {
+  changeBoard: () => void;
+  startGame: () => void;
+  resetGame: () => void;
+  toggleWinModal: () => void;
+  updateBoard: (index: number, input: number | null) => void;
+  toggleSolution: () => void;
+  checkSolution: () => boolean;
+  setShowCheckButton: (value: boolean) => void;
 };
 
-export type SudokuContextType = {
-  sudokuState: SudokuState;
-  startGame: () => void;
-  newBoard: () => void;
-  resetBoard: () => void;
-  updateBoard: (index: number, input: string) => void;
-  toggleSolution: () => void;
-  checkSolution: () => void;
-  divideIntoSquares: (board: number[] | null) => number[][];
+export type SudokuContextProps = {
+  modalMessage: string;
+  sudokuBoard: number[] | null;
+  isStarted: boolean;
+  initialFilledCells: number[];
+  openSolution: boolean;
+  solvedSudoku: number[] | null;
+  showWinModal: boolean;
+  isFilled: boolean;
+} & SudokuContextSetters;
+
+export type SudokuProviderProps = {
+  children: ReactNode;
 };

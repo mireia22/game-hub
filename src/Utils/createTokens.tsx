@@ -4,16 +4,15 @@ import styled from "styled-components";
 type TokenProps = {
   className: string;
 };
-const Token = styled.p<TokenProps>`
+const Token = styled.span<TokenProps>`
   display: flex;
-  align-items: center;
-  .green-icon {
+  &.green-icon {
     color: #8fd60c;
     background: rgb(19, 101, 11);
     border-radius: 50%;
   }
 
-  .red-icon {
+  &.red-icon {
     color: red;
     background: rgb(108, 16, 7);
     border-radius: 50%;
@@ -22,6 +21,6 @@ const Token = styled.p<TokenProps>`
 `;
 export const createToken = (className: string) => (
   <Token className={className}>
-    <GiCarabiner className={className} />
+    <GiCarabiner />
   </Token>
 );

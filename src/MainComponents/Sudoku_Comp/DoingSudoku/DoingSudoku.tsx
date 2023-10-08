@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import WinModal from "../../WinModal/WinModal";
 import {
   SudokuButtonsWrp,
@@ -7,21 +8,24 @@ import {
 } from "./DoingSudoku-styles";
 import SudokuBoardTemplate from "../SudokuBoardTemplate/SudokuBoardTemplate";
 import Button from "../../Button/Button";
-import { useSudokuContext } from "../../../Context/SudokuContext";
 import SolvedSudoku from "../SolvedSudoku/SolvedSudoku";
+import { divideIntoSquares } from "../../../Utils/Sudoku-utils/divideIntoSquares";
+import { useSudokuContext } from "../../../Hooks/Context/useSudokuContext";
 
 const DoingSudoku = () => {
   const {
     sudokuBoard,
     isFilled,
     resetGame,
-    divideIntoSquares,
     updateBoard,
     initialFilledCells,
     openSolution,
     toggleSolution,
     checkSolution,
     changeBoard,
+    showWinModal,
+    modalMessage,
+    toggleWinModal,
   } = useSudokuContext();
 
   return (
@@ -36,8 +40,8 @@ const DoingSudoku = () => {
         )}
       </section>
       <SudokuButtonsWrp>
-        <Button onClick={resetGame}>Reset Game</Button>
-        <Button onClick={changeBoard}>Change Board</Button>
+        <Button onClick={resetGame}>Clear Wall</Button>
+        <Button onClick={changeBoard}>Change Wall</Button>
 
         <Button onClick={toggleSolution}>
           {openSolution ? "Close Solution" : "View Solution"}
@@ -50,11 +54,9 @@ const DoingSudoku = () => {
       </SolvedSudokuContainer>
 
       <section>
-        {/* {userWins && (
-          <WinModal resetGame={resetGame}>
-            {isSolved === "false" ? "You lose" : "You win"}
-          </WinModal>
-        )} */}
+        {showWinModal && (
+          <WinModal resetGame={toggleWinModal}>{modalMessage}</WinModal>
+        )}
       </section>
     </SudokuWrp>
   );

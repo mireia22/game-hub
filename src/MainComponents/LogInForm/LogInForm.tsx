@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import { useAuthContext } from "../../Context/AuthContext";
 import { Form, Label, Input } from "./LoginForm-styles";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../Hooks/Context/useAuthContext";
 
 type FormData = {
   username: string;
@@ -17,7 +17,7 @@ function LoginForm() {
   const onSubmit = async (data: FormData) => {
     try {
       await login(data);
-      navigate("/dashboard/home");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login failed", error);
     }

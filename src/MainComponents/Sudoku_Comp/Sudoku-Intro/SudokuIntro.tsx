@@ -4,7 +4,7 @@ import {
   IntroWrp,
 } from "../../Hangman_Comp/GameIntro/HangmanIntro-styles";
 import Button from "../../Button/Button";
-import { useSudokuContext } from "../../../Context/SudokuContext";
+import { useSudokuContext } from "../../../Hooks/Context/useSudokuContext";
 
 const SudokuIntro = () => {
   const { startGame } = useSudokuContext();

@@ -1,4 +1,4 @@
-import { useSudokuContext } from "../../Context/SudokuContext";
+import { useSudokuContext } from "../../Hooks/Context/useSudokuContext";
 import DoingSudoku from "../../MainComponents/Sudoku_Comp/DoingSudoku/DoingSudoku";
 import SudokuIntro from "../../MainComponents/Sudoku_Comp/Sudoku-Intro/SudokuIntro";
 

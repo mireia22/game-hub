@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { HomeWrp, HomeTextWrp, HomeUl, GameCard } from "./Home-styles";
 import Button from "../../MainComponents/Button/Button";
 import { GAMES } from "../../MainComponents/Constants/Games";
-import { useAuthContext } from "../../Context/AuthContext";
+import { useAuthContext } from "../../Hooks/Context/useAuthContext";
 
 const Home: React.FC = () => {
   const { user } = useAuthContext();

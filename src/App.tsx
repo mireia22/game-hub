@@ -8,12 +8,12 @@ import Sudoku from "./Pages/Sudoku/Sudoku";
 import LoginForm from "./MainComponents/LogInForm/LogInForm";
 import { ProtectedNavLayout } from "./Layout/ProtectedLayout";
 import WelcomePage from "./Pages/WelcomePage/WelcomePage";
-import { useAuthContext } from "./Context/AuthContext";
-import { TicTacToeDataProvider } from "./Context/TicTacToeContext";
-import { HangmanDataProvider } from "./Context/HangmanContext";
-import { SudokuDataProvider } from "./Context/SudokuContext";
 import { GiMountainClimbing } from "react-icons/gi";
 import { TbArrowBigLeftLineFilled } from "react-icons/tb";
+import { TicTacToeDataProvider } from "./Hooks/Context/useTicTacToeContext";
+import { HangmanDataProvider } from "./Hooks/Context/useHangmanContext";
+import { SudokuDataProvider } from "./Hooks/Context/useSudokuContext";
+import { useAuthContext } from "./Hooks/Context/useAuthContext";
 
 const App: React.FC = () => {
   const { user } = useAuthContext();
@@ -24,9 +24,12 @@ const App: React.FC = () => {
   const isDashboard = location.pathname.startsWith("/dashboard");
 
   const returnToPreviousPage = () => {
-    navigate(-1);
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/");
+    }
   };
-
   return (
     <AppWrp isdashboard={isDashboard.toString()}>
       <MainHeader>
@@ -44,7 +47,7 @@ const App: React.FC = () => {
             <Route path="login" element={<LoginForm />} />
 
             {/* PROTECTED ROUTES */}
-            <Route path="/dashboard/home" element={<Home />} />
+            <Route path="/dashboard" element={<Home />} />
             <Route
               path="dashboard/tic-tac-toe"
               element={
@@ -71,12 +74,11 @@ const App: React.FC = () => {
             />
           </Route>
         </Routes>
-        {location.pathname !== "/" &&
-          location.pathname !== "/dashboard/home" && (
-            <Button variant="return" onClick={returnToPreviousPage}>
-              <TbArrowBigLeftLineFilled />
-            </Button>
-          )}
+        {location.pathname !== "/" && location.pathname !== "/dashboard" && (
+          <Button variant="return" onClick={returnToPreviousPage}>
+            <TbArrowBigLeftLineFilled />
+          </Button>
+        )}
       </MainWrp>
 
       <MainFooter>Created by Mire</MainFooter>

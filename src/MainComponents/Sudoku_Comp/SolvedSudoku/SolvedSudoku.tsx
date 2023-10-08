@@ -1,9 +1,9 @@
-import { useSudokuContext } from "../../../Context/SudokuContext";
+import { useSudokuContext } from "../../../Hooks/Context/useSudokuContext";
+import { divideIntoSquares } from "../../../Utils/Sudoku-utils/divideIntoSquares";
 import SolvedSudokuBoardTemplate from "../SolvedSudokuBoardTemplate/SolvedSudokuBoardTemplate";
 
 const SolvedSudoku = () => {
-  const { divideIntoSquares, initialFilledCells, openSolution, solvedSudoku } =
-    useSudokuContext();
+  const { initialFilledCells, openSolution, solvedSudoku } = useSudokuContext();
   console.log("openSolution in SolvedSudoku:", openSolution);
   return (
     <>
