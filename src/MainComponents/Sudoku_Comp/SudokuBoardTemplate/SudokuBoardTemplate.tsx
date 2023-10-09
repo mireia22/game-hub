@@ -13,13 +13,15 @@ const SudokuBoardTemplate = ({
   ) => {
     const inputValue = e.target.value;
     const truncatedValue = inputValue.charAt(0);
-    e.target.value = truncatedValue;
 
-    if (+inputValue < 1) {
-      // Check for empty input
-      updateBoard(subgridIndex * 9 + cellIndex, null); // Convert to null
-    } else if (/^[1-9]$/.test(inputValue)) {
-      updateBoard(subgridIndex * 9 + cellIndex, +inputValue);
+    if (updateBoard) {
+      if (truncatedValue === "") {
+        // Handle empty input by converting it to null
+        updateBoard(subgridIndex * 9 + cellIndex, null);
+      } else if (/^[1-9]$/.test(truncatedValue)) {
+        // Valid input, update the board
+        updateBoard(subgridIndex * 9 + cellIndex, +truncatedValue);
+      }
     }
   };
 

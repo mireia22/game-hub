@@ -53,9 +53,12 @@ const useSudokuLogic = () => {
 
   const updateBoard = (index: number, input: number | null) => {
     if (sudokuBoard) {
-      const newBoardState = [...sudokuBoard];
-      newBoardState[index] = parseInt(String(input)) - 1;
-      setSudokuBoard(newBoardState);
+      const newBoardState: (number | null)[] = [...sudokuBoard];
+      newBoardState[index] = (input !== null ? (input as number) - 1 : null) as
+        | number
+        | null;
+
+      setSudokuBoard(newBoardState as number[] | null);
 
       const isBoardFilled = newBoardState.every((cell) => cell !== null);
       setShowCheckButton(isBoardFilled);

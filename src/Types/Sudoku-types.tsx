@@ -5,7 +5,7 @@ type SudokuContextSetters = {
   startGame: () => void;
   resetGame: () => void;
   toggleWinModal: () => void;
-  updateBoard: (index: number, input: number | null) => void;
+  updateBoard: (subgridIndex: number | null, inputValue: number | null) => void;
   toggleSolution: () => void;
   checkSolution: () => boolean;
   setShowCheckButton: (value: boolean) => void;
@@ -28,7 +28,7 @@ export type SudokuProviderProps = {
 
 export type SudokuBoardTemplateProps = {
   subgrids?: any;
-  updateBoard: (subgridIndex: number, inputValue: number | null) => void;
+  updateBoard: (subgridIndex: number | null, inputValue: number | null) => void;
   initialFilledCells?: number[];
 };
 
