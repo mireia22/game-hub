@@ -27,6 +27,7 @@ const DoingSudoku = () => {
     toggleWinModal,
   } = useSudokuContext();
 
+  console.log(sudokuBoard, "sudokuboard");
   return (
     <AllSudoku>
       <SudokuWrp>
