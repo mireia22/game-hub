@@ -1,33 +1,46 @@
 import styled from "styled-components";
 
 export const WelcomeWrp = styled.section`
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   min-height: calc(100vh - (36px + 48px));
   width: 100%;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  gap: 1rem;
-  align-items: center;
+  text-align: end;
+  gap: 3rem;
+  align-items: end;
   font-weight: bold;
-  color: var(--dark-brown);
+  color: var(--font);
+
   > article > h1 {
-    font-size: 2.5rem;
-  }
-  @media (min-width: 445px) {
-    text-align: start;
-    align-items: start;
+    font-size: 2rem;
   }
 
-  @media (min-width: 768px) {
-    padding: 0.2rem 2rem;
-    gap: 0.3rem;
+  @media (min-width: 630px) {
+    text-align: center;
+
+    color: var(--dark-orange);
+
+    > article > h1 {
+      font-size: 3rem;
+      margin-right: 4rem;
+    }
+  }
+
+  @media (min-width: 784px) {
+    text-align: center;
+
+    color: var(--dark-orange);
+
+    > article > h1 {
+      font-size: 3rem;
+      margin-right: 12rem;
+    }
   }
 `;
 
 export const LinkWrp = styled.article`
   background-color: var(--dark-brown);
-  margin-right: 6rem;
 
   padding: 0.18rem;
   text-align: center;
@@ -39,17 +52,25 @@ export const LinkWrp = styled.article`
     color: var(--font);
     cursor: pointer;
   }
+  @media (min-width: 630px) {
+    margin-right: 9rem;
+  }
+  @media (min-width: 784px) {
+    margin-right: 17rem;
+  }
 `;
 
 export const PWrp = styled.article`
-  margin-top: 20vh;
-  margin-right: 28vw;
   font-size: 0.9rem;
   line-height: 2rem;
-  text-align: center;
-  color: var(--dark-orange);
-  @media (min-width: 445px) {
-    margin-top: 0vh;
-    text-align: start;
+  text-align: end;
+  color: var(--font);
+  @media (min-width: 630px) {
+    text-align: center;
+    color: black;
+    margin-right: 5.5rem;
+  }
+  @media (min-width: 784px) {
+    margin-right: 13.5rem;
   }
 `;

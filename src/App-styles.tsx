@@ -12,14 +12,7 @@ export const AppWrp = styled.div<{ isdashboard: string }>`
   background-color: ${({ isdashboard }) =>
     isdashboard === "true" ? "#ef8b20e0" : "transparent"};
 
-  @media (min-width: 445px) {
-    background-image: url(${({ isdashboard }) =>
-      isdashboard === "true"
-        ? "https://www.transparenttextures.com/patterns/subtle-white-feathers.png"
-        : "/assets/backgrounds/tablet-background.jpg"});
-  }
-
-  @media (min-width: 768px) {
+  @media (min-width: 630px) {
     background-image: url(${({ isdashboard }) =>
       isdashboard === "true"
         ? "https://www.transparenttextures.com/patterns/subtle-white-feathers.png"
