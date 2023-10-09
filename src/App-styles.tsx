@@ -10,7 +10,7 @@ export const AppWrp = styled.div<{ isdashboard: string }>`
   background-repeat: no-repeat;
   background-position: center; // Center the background image
   background-color: ${({ isdashboard }) =>
-    isdashboard === "true" ? "#ef8b20e0" : "transparent"};
+    isdashboard === "true" ? "#e16a0fdf" : "transparent"};
 
   @media (min-width: 630px) {
     background-image: url(${({ isdashboard }) =>
@@ -39,12 +39,4 @@ export const MainWrp = styled.main`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-`;
-
-export const MainFooter = styled.footer`
-  text-align: center;
-  padding: 0.5rem;
-  color: var(--font);
-  background-color: #010208;
-  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
 `;

@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const IntroWrp = styled.section`
   display: flex;
   flex-direction: column;
-  gap: 2.2rem;
+  gap: 3rem;
   text-align: center;
   color: var(--font);
 
   > article {
     > p {
-      padding: 0rem 2rem;
+      padding: 0.5rem 2rem;
       color: var(--dark-brown);
       font-weight: bold;
       line-height: 1.8rem;

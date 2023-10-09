@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import { MainWrp, MainHeader, MainFooter, AppWrp } from "./App-styles";
+import { MainWrp, MainHeader, AppWrp } from "./App-styles";
 import Button from "./MainComponents/Button/Button";
 import Home from "./Pages/Home/Home";
 import Tictactoe from "./Pages/TicTacToe/Tictactoe";
@@ -14,6 +14,7 @@ import { TicTacToeDataProvider } from "./Hooks/Context/useTicTacToeContext";
 import { HangmanDataProvider } from "./Hooks/Context/useHangmanContext";
 import { SudokuDataProvider } from "./Hooks/Context/useSudokuContext";
 import { useAuthContext } from "./Hooks/Context/useAuthContext";
+import Footer from "./MainComponents/Footer/Footer";
 
 const App: React.FC = () => {
   const { user } = useAuthContext();
@@ -81,7 +82,7 @@ const App: React.FC = () => {
         )}
       </MainWrp>
 
-      <MainFooter>Created by Mire</MainFooter>
+      <Footer />
     </AppWrp>
   );
 };

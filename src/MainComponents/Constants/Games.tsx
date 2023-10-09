@@ -50,7 +50,7 @@ export const GAMES = [
     description: "Number puzzle game on a 9x9 grid.",
     introText: {
       p1: "Your task: complete the Sudoku puzzle while ensuring the climbing wall's safety.",
-      p2: "With each correct number you place, you secure a climbing hold",
+      p2: "With each correct number you place, you secure a climbing hold.",
       p3: "Are you ready?",
     },
   },
