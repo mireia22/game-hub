@@ -1,11 +1,13 @@
-import { SudokuBoardTemplateProps } from "../../../Types/Sudoku-types";
+import { SolvedSudokuBoardTemplateProps } from "../../../Types/Sudoku-types";
 import {
   SolvedNumberCell,
   SolvedBoard,
   SolvedSudokuGrid,
 } from "./SolvedSudokuBoardTemplate-styles";
 
-const SolvedSudokuBoardTemplate = ({ subgrids }: SudokuBoardTemplateProps) => {
+const SolvedSudokuBoardTemplate = ({
+  subgrids,
+}: SolvedSudokuBoardTemplateProps) => {
   return (
     <SolvedBoard>
       {subgrids?.map((subgrid: number[], subgridIndex: number) => (

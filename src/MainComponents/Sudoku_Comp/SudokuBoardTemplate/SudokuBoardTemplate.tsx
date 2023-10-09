@@ -35,12 +35,12 @@ const SudokuBoardTemplate = ({
               <NumberCell key={cellIndex} readOnly={readOnly}>
                 <input
                   type="number"
-                  value={cell !== null ? cell + 1 : ""}
+                  value={cell !== null ? String(cell + 1) : ""}
                   onChange={(e) => handleInput(e, subgridIndex, cellIndex)}
                   readOnly={readOnly}
                 />
                 <img
-                  src="/public/assets/sudoku/climbing-hold.jpg"
+                  src="/assets/sudoku/climbing-hold.jpg"
                   alt="climbing-hold"
                   loading="lazy"
                 />

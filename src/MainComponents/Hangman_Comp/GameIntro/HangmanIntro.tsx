@@ -15,7 +15,7 @@ const HangmanIntro = () => {
       </article>
       <ImageWrp>
         <img
-          src="/public/assets/hangman/hangman-intro.jpg"
+          src="/assets/hangman/hangman-intro.jpg"
           alt="Level Carabiners"
           loading="lazy"
         />

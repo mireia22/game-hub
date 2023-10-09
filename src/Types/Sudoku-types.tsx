@@ -28,6 +28,11 @@ export type SudokuProviderProps = {
 
 export type SudokuBoardTemplateProps = {
   subgrids?: any;
-  updateBoard?: (subgridIndex: number, inputValue: number | null) => void;
+  updateBoard: (subgridIndex: number, inputValue: number | null) => void;
+  initialFilledCells?: number[];
+};
+
+export type SolvedSudokuBoardTemplateProps = {
+  subgrids?: any;
   initialFilledCells?: number[];
 };

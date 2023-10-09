@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 type NumberCellProps = {
-  readOnly: Boolean;
+  readOnly?: boolean;
 };
 export const Board = styled.div`
   display: grid;
