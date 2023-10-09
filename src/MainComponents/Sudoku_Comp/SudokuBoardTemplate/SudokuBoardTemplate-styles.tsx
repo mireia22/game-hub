@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
+type NumberCellProps = {
+  readOnly: Boolean;
+};
 export const Board = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  width: 311px;
+  height: 311px;
 
   @media (min-width: 576px) {
     width: 400px;
@@ -23,7 +28,7 @@ const NumberCellBase = styled.div`
   border: 1px solid black;
 `;
 
-export const NumberCell = styled(NumberCellBase)`
+export const NumberCell = styled(NumberCellBase)<NumberCellProps>`
   > input {
     padding: 0.5rem;
     position: absolute;
@@ -31,11 +36,13 @@ export const NumberCell = styled(NumberCellBase)`
     width: 2rem;
     border: none;
     font-weight: bold;
+
     ${(props) => props.readOnly && "background-color: #6fd39dad"};
 
     @media (min-width: 576px) {
       width: calc(43.77px - 2px);
       height: calc(43.77px - 2px);
+      font-size: 1.5rem;
     }
   }
 

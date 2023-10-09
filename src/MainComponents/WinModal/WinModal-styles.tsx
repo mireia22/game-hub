@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
-export const PopOut = styled.div`
+export const PopOut = styled.article`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
 `;
 
 export const PopOutContent = styled.div`
@@ -22,11 +21,22 @@ export const PopOutContent = styled.div`
   padding: 0.8rem;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1001;
   align-items: center;
-  justify-content: center;
+  > p {
+    font-weight: bold;
+  }
 
   > img {
     width: 14rem;
+    border-radius: 10px;
+  }
+
+  > span {
+    min-width: 3rem;
+    min-height: 3rem;
+    > svg {
+      width: 100%;
+      height: 100%;
+    }
   }
 `;

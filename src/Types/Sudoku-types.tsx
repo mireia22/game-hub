@@ -25,3 +25,9 @@ export type SudokuContextProps = {
 export type SudokuProviderProps = {
   children: ReactNode;
 };
+
+export type SudokuBoardTemplateProps = {
+  subgrids: number[][];
+  updateBoard: (subgridIndex: number, inputValue: number | null) => void;
+  initialFilledCells: number[];
+};

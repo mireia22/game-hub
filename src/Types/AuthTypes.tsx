@@ -8,7 +8,7 @@ export type UserData = {
 
 export type AuthContextType = {
   user: UserData | null;
-  login: (data: UserData) => void;
+  login: (data: UserData) => Promise<void>;
   logout: () => void;
 };
 

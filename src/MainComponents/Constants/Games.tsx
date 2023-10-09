@@ -36,7 +36,7 @@ export const GAMES = [
     route: "/dashboard/hangman",
 
     image: "/assets/hangman/hangman-principal.jpg",
-    description: "Guess the word before the hangman is drawn.",
+    description: "Guess the word before the rope is cut.",
     introText: {
       p1: "Imagine hanging from a Linguistic Cliff, where every correct guess pulls you higher, but a wrong one might cut your rope!",
       p2: "Number of quickdraws you want to take:",

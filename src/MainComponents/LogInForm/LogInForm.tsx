@@ -3,18 +3,14 @@ import { Form, Label, Input } from "./LoginForm-styles";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../Hooks/Context/useAuthContext";
+import { UserData } from "../../Types/AuthTypes";
 
-type FormData = {
-  username: string;
-  password: string;
-};
-
-function LoginForm() {
-  const { register, handleSubmit } = useForm<FormData>();
+const LoginForm = () => {
+  const { register, handleSubmit } = useForm<UserData>();
   const { login } = useAuthContext();
   const navigate = useNavigate();
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: UserData): Promise<void> => {
     try {
       await login(data);
       navigate("/dashboard");
@@ -49,6 +45,6 @@ function LoginForm() {
       </Button>
     </Form>
   );
-}
+};
 
 export default LoginForm;

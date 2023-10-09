@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TurnWrp = styled.div`
   display: flex;
-  width: 100%;
+  margin-top: 1rem;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -11,6 +11,15 @@ export const TurnWrp = styled.div`
     font-weight: bold;
     @media (min-width: 576px) {
       font-size: 2rem;
+    }
+  }
+
+  > span {
+    min-width: 2rem;
+    min-height: 2rem;
+    > svg {
+      width: 100%;
+      height: 100%;
     }
   }
 `;

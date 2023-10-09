@@ -4,17 +4,12 @@ import SolvedSudokuBoardTemplate from "../SolvedSudokuBoardTemplate/SolvedSudoku
 
 const SolvedSudoku = () => {
   const { initialFilledCells, openSolution, solvedSudoku } = useSudokuContext();
-  console.log("openSolution in SolvedSudoku:", openSolution);
-  return (
-    <>
-      {openSolution && solvedSudoku !== null && (
-        <SolvedSudokuBoardTemplate
-          subgrids={divideIntoSquares(solvedSudoku)}
-          initialFilledCells={initialFilledCells}
-        />
-      )}
-    </>
-  );
+  return openSolution && solvedSudoku !== null ? (
+    <SolvedSudokuBoardTemplate
+      subgrids={divideIntoSquares(solvedSudoku)}
+      initialFilledCells={initialFilledCells}
+    />
+  ) : null;
 };
 
 export default SolvedSudoku;

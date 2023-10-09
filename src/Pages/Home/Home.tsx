@@ -4,6 +4,14 @@ import Button from "../../MainComponents/Button/Button";
 import { GAMES } from "../../MainComponents/Constants/Games";
 import { useAuthContext } from "../../Hooks/Context/useAuthContext";
 
+type Game = {
+  name: string;
+  id: string;
+  route: string;
+  image: string;
+  description: string;
+};
+
 const Home: React.FC = () => {
   const { user } = useAuthContext();
   const navigate = useNavigate();
@@ -29,10 +37,10 @@ const Home: React.FC = () => {
         <h2>What do you want to play?</h2>
       </HomeTextWrp>
       <HomeUl>
-        {GAMES.map((game) => (
+        {GAMES.map((game: Game) => (
           <GameCard key={game.id}>
             <h3>{game.name}</h3>
-            <img src={game.image} alt={game.name} />
+            <img src={game.image} alt={game.name} loading="lazy" />
             <p>{game.description}</p>
             <Button variant="play" onClick={() => goToGame(game.name)}>
               Play

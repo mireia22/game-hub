@@ -4,20 +4,24 @@ import { GAMES } from "../../Constants/Games";
 
 const HangmanIntro = () => {
   const game = GAMES[1];
+  const introTextP1 = game.introText?.p1 || "";
+  const introTextP2 = game.introText?.p2 || "";
+
   return (
     <IntroWrp>
       <article>
         <h2>VOCABULARY CHALLENGE!</h2>
-        <p>{game.introText?.p1} </p>
+        <p>{introTextP1}</p>
       </article>
       <ImageWrp>
         <img
           src="/public/assets/hangman/hangman-intro.jpg"
           alt="Level Carabiners"
+          loading="lazy"
         />
       </ImageWrp>
       <article>
-        <p style={{ fontWeight: "bold" }}>{game.introText?.p2} </p>
+        <p>{introTextP2}</p>
         <ChooseAttempts />
       </article>
     </IntroWrp>

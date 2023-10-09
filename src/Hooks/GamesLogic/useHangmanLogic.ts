@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { RIDDLES } from "../../MainComponents/Constants/hangman/Hangman-Riddles";
 import {
   getHiddenWord,
   getNormalizedWord,
   getRandom,
 } from "../../Utils/Hangman-utils/getWords";
+import { RIDDLES } from "../../MainComponents/Constants/Hangman-Riddles";
 
 const riddleNames = RIDDLES.map((riddle) => riddle.name);
 

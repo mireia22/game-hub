@@ -7,18 +7,25 @@ export const AppWrp = styled.div<{ isdashboard: string }>`
       : "/assets/backgrounds/mobile-background-2.jpg"});
 
   background-size: cover;
-
+  background-repeat: no-repeat;
+  background-position: center; // Center the background image
   background-color: ${({ isdashboard }) =>
-    isdashboard === "true" ? "#ef8c20" : "transparent"};
+    isdashboard === "true" ? "#ef8b20e0" : "transparent"};
 
-  @media (min-width: 576px) {
+  @media (min-width: 445px) {
     background-image: url(${({ isdashboard }) =>
       isdashboard === "true"
         ? "https://www.transparenttextures.com/patterns/subtle-white-feathers.png"
-        : "/assets/backgrounds/welcome-background.jpg"});
+        : "/assets/backgrounds/tablet-background.jpg"});
+  }
+
+  @media (min-width: 768px) {
+    background-image: url(${({ isdashboard }) =>
+      isdashboard === "true"
+        ? "https://www.transparenttextures.com/patterns/subtle-white-feathers.png"
+        : "/assets/backgrounds/desktop-background.jpg"});
   }
 `;
-
 export const MainHeader = styled.header`
   display: flex;
   padding: 0.5rem;
@@ -29,13 +36,6 @@ export const MainHeader = styled.header`
     font-size: 2rem;
     transform: scaleX(-1);
     color: var(--font);
-  }
-
-  > nav {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
   }
 `;
 export const MainWrp = styled.main`

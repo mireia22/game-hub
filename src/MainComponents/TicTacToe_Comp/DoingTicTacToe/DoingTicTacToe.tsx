@@ -1,19 +1,20 @@
-import { PlayingWrp, ButtonsWrp } from "./PlayingTicTacToe-styles";
 import Board from "../Board/Board";
 import Turn from "../Turn/Turn";
 import Points from "../Points/Points";
 import Button from "../../Button/Button";
-import { createToken } from "../../../Utils/createTokens";
 import { useTicTacToeContext } from "../../../Hooks/Context/useTicTacToeContext";
+import WinModal from "../../WinModal/WinModal";
+import { ButtonsWrp, PlayingWrp } from "./DoingTicTacToe-styles";
+import { createToken } from "../../../Utils/Tictactoe-utils/createTokens";
 
-const PlayingTicTacToe = () => {
+const DoingTicTacToe = () => {
   const { gameState, resetPoints, updateBoard, resetGame, selectedWall } =
     useTicTacToeContext();
 
   const { pointsX, pointsO } = gameState.points;
   const gameResult = gameState.gameResult;
-  const xToken = createToken("green-icon");
-  const oToken = createToken("red-icon");
+  const xToken: JSX.Element = createToken("green-icon");
+  const oToken: JSX.Element = createToken("red-icon");
 
   return (
     <PlayingWrp>
@@ -44,8 +45,20 @@ const PlayingTicTacToe = () => {
           Reset Points
         </Button>
       </ButtonsWrp>
+      {gameState.gameResult !== null && (
+        <WinModal resetGame={resetGame} gameResult={gameState.gameResult}>
+          {gameState.gameResult === "equal" ? (
+            "Equals"
+          ) : (
+            <>
+              <h3>Winner is:</h3>
+              {gameState.gameResult === "X" ? xToken : oToken}
+            </>
+          )}
+        </WinModal>
+      )}
     </PlayingWrp>
   );
 };
 
-export default PlayingTicTacToe;
+export default DoingTicTacToe;

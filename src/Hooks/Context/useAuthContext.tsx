@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useLocalStorage("user", null);
   const navigate = useNavigate();
 
-  const login = async (data: UserData) => {
+  const login = async (data: UserData): Promise<void> => {
     setUser(data);
     navigate("/dashboard", { replace: true });
   };

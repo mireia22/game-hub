@@ -7,6 +7,7 @@ export const MainButton = styled.button`
   cursor: pointer;
   color: white;
   border: none;
+
   &.return {
     background-color: transparent;
     position: fixed;

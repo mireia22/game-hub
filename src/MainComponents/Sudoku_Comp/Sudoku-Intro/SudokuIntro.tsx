@@ -19,7 +19,11 @@ const SudokuIntro = () => {
         <h3>{game.introText?.p3} </h3>
       </article>
       <ImageWrp>
-        <img src="/assets/sudoku/sudoku-intro.jpg" alt="Level Carabiners" />
+        <img
+          src="/assets/sudoku/sudoku-intro.jpg"
+          alt="Level Carabiners"
+          loading="lazy"
+        />
       </ImageWrp>
       <Button variant="start" onClick={startGame}>
         Start

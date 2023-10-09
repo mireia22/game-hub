@@ -16,9 +16,9 @@ const IntroTicTacToe = () => {
     <ChooseWallSection>
       <article>
         <h2>{introText?.p1?.toUpperCase()} </h2>
-        <p>{introText?.p2} </p>
-        <p>{introText?.p3} </p>
-        <p>{introText?.p4} </p>
+        <p>{introText.p2} </p>
+        <p>{introText.p3} </p>
+        <p>{introText.p4} </p>
       </article>
       <article>
         <h4>Choose a climbing wall:</h4>
@@ -26,10 +26,10 @@ const IntroTicTacToe = () => {
           {climbingWalls?.map((wall, index) => (
             <WallImageContainer
               key={index}
-              onClick={() => selectWallAndStartGame(wall?.image, wall?.name)}
+              onClick={() => selectWallAndStartGame(wall.image, wall.name)}
             >
-              <img src={wall?.image} alt={wall?.name} />
-              <h4>{wall?.name?.toUpperCase()}</h4>
+              <img src={wall?.image} alt={wall?.name} loading="lazy" />
+              <h4>{wall.name?.toUpperCase()}</h4>
             </WallImageContainer>
           ))}
         </ClimbingWallsWrp>

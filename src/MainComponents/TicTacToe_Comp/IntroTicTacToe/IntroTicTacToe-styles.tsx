@@ -5,7 +5,6 @@ export const ChooseWallSection = styled.section`
   flex-direction: column;
   text-align: center;
   gap: 3rem;
-  padding: 1rem;
   color: var(--dark-brown);
   > article {
     > h2 {
@@ -27,7 +26,6 @@ export const ClimbingWallsWrp = styled.ul`
   margin-top: 1rem;
   flex-wrap: wrap;
   gap: 1.5rem;
-  align-items: center;
   justify-content: center;
 `;
 
@@ -37,7 +35,6 @@ export const WallImageContainer = styled.li`
   justify-content: space-around;
   background-color: var(--dark-brown);
   padding: 0.5rem;
-  width: 9rem;
   border-radius: 10px;
   cursor: pointer;
   > h4 {

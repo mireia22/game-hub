@@ -10,12 +10,7 @@ const fadeIn = keyframes`
 `;
 export const RiddlesImgWrp = styled.div`
   width: 10rem;
-  margin: 0 auto;
-  align-items: center;
-  text-align: center;
-
   > img {
-    object-fit: contain;
     width: 100%;
     animation: ${fadeIn} 0.4s ease-in-out;
     border-radius: 50%;

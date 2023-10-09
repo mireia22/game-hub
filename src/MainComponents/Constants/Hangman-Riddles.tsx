@@ -9,7 +9,6 @@ export const RIDDLES = [
   {
     name: "Belay",
     id: uuidv4(),
-
     description:
       "A safety technique using a rope to protect a climber from falling.",
   },

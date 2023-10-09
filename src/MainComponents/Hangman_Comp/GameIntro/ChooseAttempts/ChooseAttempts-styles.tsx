@@ -16,12 +16,10 @@ export const ChooseAttemptsButton = styled.button<ChooseAttemptsButtonProps>`
   gap: 1rem;
   color: var(--font);
   align-items: center;
-  padding: 0.3rem;
   font-weight: bold;
   font-size: 1rem;
   justify-content: center;
   border: none;
-  height: 2rem;
   width: 5rem;
   border-radius: 5px;
   cursor: pointer;

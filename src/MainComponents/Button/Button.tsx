@@ -2,7 +2,7 @@ import { MainButton } from "./Button-styles";
 import React from "react";
 type Props = {
   type?: string;
-  children: any;
+  children: React.ReactNode;
   variant: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 };

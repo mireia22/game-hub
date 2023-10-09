@@ -4,7 +4,6 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 1.2rem;
   padding: 1.5rem 1rem;
   background: rgba(87, 42, 12, 0.85);
@@ -13,11 +12,8 @@ export const Form = styled.form`
   backdrop-filter: blur(6px);
   transition: background-color 0.3s ease;
   color: var(--font);
+  letter-spacing: 1px;
 
-  > h2 {
-    letter-spacing: 1px;
-    color: var(--font);
-  }
   &:hover {
     background-color: rgba(87, 42, 12, 0.95);
   }
@@ -26,7 +22,6 @@ export const Form = styled.form`
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
-  letter-spacing: 1px;
   gap: 0.5rem;
 `;
 

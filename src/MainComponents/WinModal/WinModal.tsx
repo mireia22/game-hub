@@ -3,7 +3,7 @@ import { PopOut, PopOutContent } from "./WinModal-styles";
 
 type WinModalProps = {
   resetGame: () => void;
-  gameResult: string;
+  gameResult?: string;
   children: React.ReactNode;
 };
 
@@ -18,7 +18,6 @@ const WinModal: React.FC<WinModalProps> = ({ resetGame, children }) => {
       </PopOutContent>
     </PopOut>
   );
-  return null;
 };
 
 export default WinModal;

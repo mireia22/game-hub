@@ -1,10 +1,9 @@
-import React, { useState } from "react";
 import WinModal from "../../WinModal/WinModal";
 import {
   SudokuButtonsWrp,
   SudokuWrp,
   SolvedSudokuContainer,
-  SudokuBoardWrp,
+  AllSudoku,
 } from "./DoingSudoku-styles";
 import SudokuBoardTemplate from "../SudokuBoardTemplate/SudokuBoardTemplate";
 import Button from "../../Button/Button";
@@ -29,36 +28,48 @@ const DoingSudoku = () => {
   } = useSudokuContext();
 
   return (
-    <SudokuWrp>
-      <section>
-        {sudokuBoard && (
-          <SudokuBoardTemplate
-            subgrids={divideIntoSquares(sudokuBoard)}
-            updateBoard={updateBoard}
-            initialFilledCells={initialFilledCells}
-          />
-        )}
-      </section>
-      <SudokuButtonsWrp>
-        <Button onClick={resetGame}>Clear Wall</Button>
-        <Button onClick={changeBoard}>Change Wall</Button>
+    <AllSudoku>
+      <SudokuWrp>
+        <h1>Securing the wall...</h1>
+        <>
+          {sudokuBoard && (
+            <SudokuBoardTemplate
+              subgrids={divideIntoSquares(sudokuBoard)}
+              updateBoard={updateBoard}
+              initialFilledCells={initialFilledCells}
+            />
+          )}
+        </>
+        <SudokuButtonsWrp>
+          <Button variant="reset" onClick={resetGame}>
+            Clear Wall
+          </Button>
+          <Button variant="reset" onClick={changeBoard}>
+            Change Wall
+          </Button>
 
-        <Button onClick={toggleSolution}>
-          {openSolution ? "Close Solution" : "View Solution"}
-        </Button>
-        {isFilled && <Button onClick={checkSolution}>Check Solution</Button>}
-      </SudokuButtonsWrp>
-
+          <Button variant="" onClick={toggleSolution}>
+            {openSolution ? "Close Solution" : "View Solution"}
+          </Button>
+          {isFilled && (
+            <Button variant="" onClick={checkSolution}>
+              Check Solution
+            </Button>
+          )}
+        </SudokuButtonsWrp>
+      </SudokuWrp>
       <SolvedSudokuContainer>
         <SolvedSudoku />
       </SolvedSudokuContainer>
 
-      <section>
+      <>
         {showWinModal && (
-          <WinModal resetGame={toggleWinModal}>{modalMessage}</WinModal>
+          <WinModal resetGame={toggleWinModal}>
+            <p>{modalMessage}</p>
+          </WinModal>
         )}
-      </section>
-    </SudokuWrp>
+      </>
+    </AllSudoku>
   );
 };
 

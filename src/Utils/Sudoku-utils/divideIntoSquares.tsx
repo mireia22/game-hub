@@ -1,4 +1,4 @@
-export const divideIntoSquares = (board) => {
+export const divideIntoSquares = (board: number[][]) => {
   const squares = [];
   if (board) {
     for (let i = 0; i < 9; i++) {

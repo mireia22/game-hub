@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const DoingHangmanWrp = styled.section`
-  padding: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   > article {
     > p {
       font-weight: bold;

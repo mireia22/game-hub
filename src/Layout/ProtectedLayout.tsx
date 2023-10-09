@@ -1,30 +1,34 @@
-import { Navigate } from "react-router-dom";
-import { layoutPages } from "../MainComponents/Constants/layoutPages";
-import { useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Button from "../MainComponents/Button/Button";
 import { useAuthContext } from "../Hooks/Context/useAuthContext";
+import { GiMountainClimbing } from "react-icons/gi";
+import { LinksWrp, ProtectedNavWrp } from "./ProtectedLayout-styles";
+import { GAMES } from "../MainComponents/Constants/Games";
 
 export const ProtectedNavLayout = () => {
-  const navigate = useNavigate();
   const { user, logout } = useAuthContext();
-  if (!user) return <Navigate to="/" />;
-
-  const handleNavigate = (path: string) => {
-    if (path) navigate(path);
-  };
-
+  const isUserLoggedIn = Boolean(user);
   return (
-    <nav>
-      {layoutPages?.map((page) => (
-        <a key={page.label} onClick={() => handleNavigate(page.path)}>
-          {page.label}
-        </a>
-      ))}
-      {!!user && (
-        <Button variant="log" onClick={logout}>
-          Logout
-        </Button>
+    <ProtectedNavWrp>
+      {isUserLoggedIn ? (
+        <LinksWrp>
+          <Link to="/dashboard">
+            <GiMountainClimbing className="climb-icon" />
+          </Link>
+
+          {GAMES.map((game) => (
+            <Link key={game.id} to={game.route}>
+              <span className="link-label">{game.name}</span>
+            </Link>
+          ))}
+
+          <Button variant="log" onClick={logout}>
+            Logout
+          </Button>
+        </LinksWrp>
+      ) : (
+        <Navigate to="/" />
       )}
-    </nav>
+    </ProtectedNavWrp>
   );
 };

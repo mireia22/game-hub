@@ -24,6 +24,11 @@ export const HomeTextWrp = styled.article`
   @media (min-width: 576px) {
     h1 {
       margin: 1rem 0rem;
+      font-size: 2rem;
+    }
+    h3,
+    h2 {
+      margin: 1rem 0rem;
       font-size: 1.5rem;
     }
   }
@@ -45,8 +50,10 @@ export const GameCard = styled.li`
   width: 12rem;
   background: var(--dark-brown);
   border: 2px solid var(--medium-brown);
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   border-radius: 10px;
+  justify-content: space-between;
+
   > h3 {
     text-transform: uppercase;
     letter-spacing: 1px;

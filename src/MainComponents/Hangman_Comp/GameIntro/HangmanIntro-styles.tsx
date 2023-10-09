@@ -10,7 +10,6 @@ export const IntroWrp = styled.section`
   > article {
     > p {
       padding: 0rem 2rem;
-      line-height: 1.8rem;
       color: var(--dark-brown);
       font-weight: bold;
       line-height: 1.8rem;
@@ -22,11 +21,10 @@ export const IntroWrp = styled.section`
   }
 `;
 
-export const ImageWrp = styled.div`
+export const ImageWrp = styled.article`
   height: 12rem;
   > img {
     height: 100%;
-    object-fit: contain;
     border-radius: 10px;
   }
 `;

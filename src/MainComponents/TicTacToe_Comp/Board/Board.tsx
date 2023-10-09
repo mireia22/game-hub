@@ -1,5 +1,5 @@
 import { BoardProps } from "../../../Types/TicTacToe-types";
-import { createToken } from "../../../Utils/createTokens";
+import { createToken } from "../../../Utils/Tictactoe-utils/createTokens";
 import { GameBoard, Row, Cell } from "./Board-styles";
 
 const Board: React.FC<BoardProps> = ({
@@ -23,22 +23,22 @@ const Board: React.FC<BoardProps> = ({
 
             const token = cell === "X" ? xToken : cell === "O" ? oToken : null;
 
+            const cellStyle = isWinningCell
+              ? { backdropFilter: "blur(10px)", background: "#151514c2" }
+              : {};
+
             return (
               <Cell
                 onClick={() => updateBoard(rowIndex, colIndex)}
                 key={colIndex}
-                style={
-                  isWinningCell
-                    ? { backdropFilter: "blur(10px)", background: "#151514c2" }
-                    : {}
-                }
+                style={cellStyle}
               >
                 {token}
               </Cell>
             );
           })}
         </Row>
-      ))}{" "}
+      ))}
     </GameBoard>
   );
 };

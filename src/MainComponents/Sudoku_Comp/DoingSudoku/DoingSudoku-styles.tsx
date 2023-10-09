@@ -1,36 +1,40 @@
 import styled from "styled-components";
 
-export const SudokuWrp = styled.section`
+export const AllSudoku = styled.section`
   display: flex;
-  text-align: center;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  gap: 1rem;
-
-  @media (min-width: 576px) {
+  padding: 0.5rem 0rem;
+  gap: 0.5rem;
+  @media (min-width: 675px) {
     display: grid;
-    min-width: 100%;
-    grid-template-columns: repeat(2fr, auto);
+    padding: 0rem;
   }
 `;
 
-export const SudokuButtonsWrp = styled.section`
+export const SudokuWrp = styled.article`
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 0.5rem;
 
-  @media (min-width: 576px) {
-    grid-area: 2 / 1;
+  @media (min-width: 675px) {
+    > h1 {
+      font-size: 2rem;
+    }
   }
 `;
 
-export const SolvedSudokuContainer = styled.section`
+export const SudokuButtonsWrp = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
+
+export const SolvedSudokuContainer = styled.article`
   width: 200px;
   height: 200px;
 
-  @media (min-width: 576px) {
+  @media (min-width: 675px) {
     grid-area: 1 / 2;
   }
 `;

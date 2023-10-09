@@ -15,9 +15,7 @@ export const PlayingWrp = styled.section`
   }
   @media (min-width: 576px) {
     display: grid;
-    grid-template-columns: repeat(2, auto);
     gap: 2rem;
-    text-align: center;
     > article {
       > h2 {
         font-size: 2rem;

@@ -20,7 +20,8 @@ const ChooseAttempts = () => {
           {option}
           <AttemptsImg
             src="/assets/hangman/quickdraw.jpg"
-            alt="Image Alt Text"
+            alt="Quickdraw"
+            loading="lazy"
           />
         </ChooseAttemptsButton>
       ))}

@@ -1,22 +1,19 @@
+import { SudokuBoardTemplateProps } from "../../../Types/Sudoku-types";
 import {
   SolvedNumberCell,
   SolvedBoard,
   SolvedSudokuGrid,
 } from "./SolvedSudokuBoardTemplate-styles";
 
-const SolvedSudokuBoardTemplate = ({ subgrids, initialFilledCells }) => {
+const SolvedSudokuBoardTemplate = ({ subgrids }: SudokuBoardTemplateProps) => {
   return (
     <SolvedBoard>
-      {subgrids?.map((subgrid, subgridIndex) => (
+      {subgrids?.map((subgrid: number[], subgridIndex: number) => (
         <SolvedSudokuGrid key={subgridIndex}>
           {subgrid.map((cell, cellIndex) => {
-            const boardCellIndex = subgridIndex * 9 + cellIndex;
             return (
-              <SolvedNumberCell
-                key={cellIndex}
-                filledCells={initialFilledCells?.includes(boardCellIndex)}
-              >
-                <p> {cell !== null ? cell + 1 : ""}</p>
+              <SolvedNumberCell key={cellIndex}>
+                <p> {cell + 1}</p>
               </SolvedNumberCell>
             );
           })}
