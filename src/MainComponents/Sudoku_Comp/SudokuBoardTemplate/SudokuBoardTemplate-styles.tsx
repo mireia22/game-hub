@@ -40,7 +40,7 @@ export const NumberCell = styled(NumberCellBase)<NumberCellProps>`
     ${(props) => props.readOnly && "background-color: #6fd39dad"};
 
     @media (min-width: 576px) {
-      width: calc(43.77px - 2px);
+      width: calc(43.78px - 2px);
       height: calc(43.77px - 2px);
       font-size: 1.5rem;
     }
