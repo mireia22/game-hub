@@ -34,7 +34,7 @@ const SudokuBoardTemplate = ({
             return (
               <NumberCell key={cellIndex} readOnly={readOnly}>
                 <input
-                  type="number"
+                  type="text"
                   value={cell !== null ? String(cell + 1) : ""}
                   onChange={(e) => handleInput(e, subgridIndex, cellIndex)}
                   readOnly={readOnly}
