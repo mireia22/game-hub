@@ -34,7 +34,7 @@ export const WelcomeWrp = styled.section`
 
     > article > h1 {
       font-size: 3rem;
-      margin-right: 12rem;
+      margin-right: 16rem;
     }
   }
 `;
@@ -56,7 +56,7 @@ export const LinkWrp = styled.article`
     margin-right: 9rem;
   }
   @media (min-width: 784px) {
-    margin-right: 17rem;
+    margin-right: 21rem;
   }
 `;
 
@@ -71,6 +71,6 @@ export const PWrp = styled.article`
     margin-right: 5.5rem;
   }
   @media (min-width: 784px) {
-    margin-right: 13.5rem;
+    margin-right: 17.5rem;
   }
 `;
