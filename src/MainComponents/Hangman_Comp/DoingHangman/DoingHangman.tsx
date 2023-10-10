@@ -33,7 +33,10 @@ const DoingHangman = () => {
 
   const renderLoseModal = () => (
     <WinModal resetGame={resetGame}>
-      <p>You've fallen! </p>
+      <p>You have fallen! </p>
+      <p>The correct word was </p>
+      <p>{selectedRiddle?.name.toUpperCase()}</p>
+
       <img
         src="/assets/hangman/climbing-sequence/fail-frame.jpg"
         alt="fail"

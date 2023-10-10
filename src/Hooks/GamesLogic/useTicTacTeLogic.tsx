@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { TicTacToeState } from "../../Types/TicTacToe-types";
 
 const initialBoard: string[][] = Array(3).fill(Array(3).fill(null));
-const initialTurn: "X" | "O" = "X";
+const initialTurn = Math.random() < 0.5 ? "X" : "O";
 
 const initialState: TicTacToeState = {
   isStarted: false,
