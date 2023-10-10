@@ -10,7 +10,7 @@ export const AppWrp = styled.div<{ isdashboard: string }>`
   background-repeat: no-repeat;
   background-position: center; // Center the background image
   background-color: ${({ isdashboard }) =>
-    isdashboard === "true" ? "#fcf2b6" : "transparent"};
+    isdashboard === "true" ? "#fcf5cf" : "transparent"};
 
   @media (min-width: 630px) {
     background-image: url(${({ isdashboard }) =>
