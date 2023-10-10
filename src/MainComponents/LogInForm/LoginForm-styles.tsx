@@ -5,7 +5,9 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 1.2rem;
+  max-width: 210px;
   padding: 1.5rem 1rem;
   background: rgba(87, 42, 12, 0.85);
   border: 3px solid rgb(87, 42, 12);
@@ -18,6 +20,13 @@ export const Form = styled.form`
 
   &:hover {
     background-color: rgba(87, 42, 12, 0.95);
+  }
+
+  > article {
+    > p {
+      font-size: 0.8rem;
+      color: var(--orange);
+    }
   }
 `;
 

@@ -17,9 +17,14 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useLocalStorage("user", null);
   const navigate = useNavigate();
 
-  const login = async (data: UserData): Promise<void> => {
-    setUser(data);
-    navigate("/dashboard", { replace: true });
+  const login = async (data: UserData): Promise<boolean> => {
+    if (data.username === "Coder" && data.password === "rockclimber") {
+      setUser(data);
+      return true;
+    } else {
+      console.error("Invalid username or password");
+      return false;
+    }
   };
 
   const logout = () => {
