@@ -18,8 +18,8 @@ Welcome to the Rock Climbing Game Hub, where adventure meets gaming! Explore a c
 
 To access certain features and save your game progress, you can create an account. Alternatively, use the default login credentials:
 
-- **Username:** climber123
-- **Password:** rockclimbing123
+- **Username:** Coder
+- **Password:** rockclimbing
 
 ---
 
