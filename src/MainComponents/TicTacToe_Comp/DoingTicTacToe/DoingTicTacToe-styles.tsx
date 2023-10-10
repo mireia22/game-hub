@@ -10,7 +10,7 @@ export const PlayingWrp = styled.section`
   align-items: center;
   > article {
     > h2 {
-      color: var(--dark-brown);
+      color: var(--orange);
     }
   }
   @media (min-width: 576px) {

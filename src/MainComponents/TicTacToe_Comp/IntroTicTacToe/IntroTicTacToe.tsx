@@ -28,7 +28,9 @@ const IntroTicTacToe = () => {
               key={index}
               onClick={() => selectWallAndStartGame(wall.image, wall.name)}
             >
-              <img src={wall?.image} alt={wall?.name} loading="lazy" />
+              <div>
+                <img src={wall?.image} alt={wall?.name} loading="lazy" />
+              </div>
               <h4>{wall.name?.toUpperCase()}</h4>
             </WallImageContainer>
           ))}

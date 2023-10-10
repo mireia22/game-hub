@@ -24,7 +24,7 @@ const Board: React.FC<BoardProps> = ({
             const token = cell === "X" ? xToken : cell === "O" ? oToken : null;
 
             const cellStyle = isWinningCell
-              ? { backdropFilter: "blur(10px)", background: "#151514c2" }
+              ? { backdropFilter: "blur(10px)", background: "#ef8b206e" }
               : {};
 
             return (

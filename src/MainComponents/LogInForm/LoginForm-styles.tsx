@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeIn } from "../../MainComponents/TicTacToe_Comp/IntroTicTacToe/IntroTicTacToe-styles";
 
 export const Form = styled.form`
   display: flex;
@@ -13,6 +14,7 @@ export const Form = styled.form`
   transition: background-color 0.3s ease;
   color: var(--font);
   letter-spacing: 1px;
+  animation: ${fadeIn} 0.25s ease-in-out;
 
   &:hover {
     background-color: rgba(87, 42, 12, 0.95);

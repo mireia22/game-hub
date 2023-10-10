@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HomeWrp, HomeTextWrp, HomeUl, GameCard } from "./Home-styles";
 import Button from "../../MainComponents/Button/Button";

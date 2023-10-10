@@ -1,4 +1,12 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+export const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const ChooseWallSection = styled.section`
   display: flex;
@@ -8,7 +16,7 @@ export const ChooseWallSection = styled.section`
   color: var(--dark-brown);
   > article {
     > h2 {
-      color: var(--font);
+      color: var(--orange);
     }
     > p {
       font-weight: bold;
@@ -36,17 +44,25 @@ export const WallImageContainer = styled.li`
   background-color: var(--dark-brown);
   padding: 0.5rem;
   border-radius: 10px;
+  gap: 0.5rem;
   cursor: pointer;
+  animation: ${fadeIn} 0.25s ease-in-out;
+
   > h4 {
     color: var(--orange);
   }
 
-  > img {
-    width: 100%;
-    height: 7rem;
-    border-radius: 10px;
-    object-fit: contain;
-    border-radius: 10px;
+  > div {
+    width: 11rem;
+    height: 9rem;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
   }
 
   @media (min-width: 576px) {

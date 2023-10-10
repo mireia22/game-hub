@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import { fadeIn } from "../../../TicTacToe_Comp/IntroTicTacToe/IntroTicTacToe-styles";
 
 export const ChooseAttemptsUl = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
+  animation: ${fadeIn} 0.25s ease-in-out;
 `;
 
 type ChooseAttemptsButtonProps = {

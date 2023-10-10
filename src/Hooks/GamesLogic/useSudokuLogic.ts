@@ -72,8 +72,8 @@ const useSudokuLogic = () => {
       );
       setModalMessage(
         isCorrect
-          ? "You've secured the wall!"
-          : "This wall's grip is as dependable as a wet bar of soap🫣"
+          ? "You've secured the wall! 💪"
+          : "This wall's grip is as dependable as a wet bar of soap 🫣"
       );
       setShowWinModal(true);
       return isCorrect;

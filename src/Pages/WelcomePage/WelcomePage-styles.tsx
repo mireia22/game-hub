@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeIn } from "../../MainComponents/TicTacToe_Comp/IntroTicTacToe/IntroTicTacToe-styles";
 
 export const WelcomeWrp = styled.section`
   padding: 0.5rem 1rem;
@@ -11,6 +12,7 @@ export const WelcomeWrp = styled.section`
   align-items: end;
   font-weight: bold;
   color: var(--font);
+  animation: ${fadeIn} 0.25s ease-in-out;
 
   > article > h1 {
     font-size: 2rem;

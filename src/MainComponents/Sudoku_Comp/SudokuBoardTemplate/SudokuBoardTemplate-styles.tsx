@@ -37,7 +37,7 @@ export const NumberCell = styled(NumberCellBase)<NumberCellProps>`
     border: none;
     font-weight: bold;
 
-    ${(props) => props.readOnly && "background-color: #6fd39dad"};
+    ${(props) => props.readOnly && "background-color: #ef8b209a"};
 
     @media (min-width: 576px) {
       width: calc(44px - 2px);
@@ -49,5 +49,6 @@ export const NumberCell = styled(NumberCellBase)<NumberCellProps>`
   > img {
     width: 100%;
     height: 100%;
+    ${(props) => props.readOnly && "filter: opacity(25%)"};
   }
 `;

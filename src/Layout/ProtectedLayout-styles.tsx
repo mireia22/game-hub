@@ -20,6 +20,12 @@ export const LinksWrp = styled.div`
     text-decoration: none;
     color: var(--font);
 
+    &.active-link {
+      color: var(--orange);
+      transform: scale(1.1);
+      font-weight: bold;
+    }
+
     &:visited,
     &:hover,
     &:active,

@@ -4,7 +4,7 @@ import { SudokuSubgrid } from "../SudokuBoardTemplate/SudokuBoardTemplate-styles
 export const SolvedBoard = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: #6fd39dad;
+  background-color: #ef8b209a;
 `;
 
 export const SolvedSudokuGrid = styled(SudokuSubgrid)``;

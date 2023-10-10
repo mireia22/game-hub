@@ -34,7 +34,7 @@ export const Row = styled.div`
 export const Cell = styled.button`
   width: calc(100% / 3);
   height: 100px;
-  border: 2px solid #ef8b20b6;
+  border: 2px solid #fbf8e7;
   display: flex;
   align-items: center;
   justify-content: center;

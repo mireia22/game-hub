@@ -11,9 +11,9 @@
 #root {
   --font: #fbf8e7;
   --orange: #ef8c20;
-  --dark-orange: rgb(154, 77, 17);
+  --dark-orange: #9a4d11;
   --medium-brown: #edb46e;
-  --dark-brown: rgb(87, 42, 12);
+  --dark-brown: #572a0c;
 }
 
 body {
