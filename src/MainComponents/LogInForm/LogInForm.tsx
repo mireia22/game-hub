@@ -39,7 +39,7 @@ const LoginForm = () => {
         Username
         <Input
           type="text"
-          placeholder="Username"
+          placeholder="Coder"
           {...register("username", { required: true })}
         />
       </Label>
@@ -48,7 +48,7 @@ const LoginForm = () => {
         Password
         <Input
           type="password"
-          placeholder="Password"
+          placeholder="rockclimber"
           {...register("password", { required: true })}
         />
       </Label>
